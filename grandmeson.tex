@@ -25,6 +25,12 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\Read}{Read}
 \DeclareMathOperator{\Reg}{Reg}
+\newcommand{\qu}{\mathrm u}
+\newcommand{\qd}{\mathrm d}
+\newcommand{\qc}{\mathrm c}
+\newcommand{\qs}{\mathrm s}
+\newcommand{\qt}{\mathrm t}
+\newcommand{\qb}{\mathrm b}
 
 \title{The Grand Meson}
 \author{Shuhei Ihara}
@@ -36,39 +42,42 @@
 \begin{abstract}
 This paper introduces the Grand Meson, not as a theory of everything, but
 as a safe \(n=3\) general-purpose mesonic object.  The starting point is the
-General Meson: a two-port Yukawa-style mediator whose readable structure is
-the arrow \(T\to S\).  The Grand Meson opens the two remaining readable
-axes and thereby becomes a three-axis, six-port mediator.  The extension is
-conservative: the original two-port meson is recovered by projection, while
-the new ports are registered as defined, null, or active instead of being
-left outside the type of the theory.  The central claim is modest and
-structural: the Grand Meson is the first complete and last safe mesonic
-case for a three-dimensional observer.
+General Meson: a two-port Yukawa-style mediator read, in modern quark
+language, through the light pair \(\qu\leftrightarrow\qd\).  The Grand
+Meson opens the two remaining readable quark-pair axes and thereby becomes
+a three-axis, six-port mediator.  The extension is conservative: the
+original two-port meson is recovered by projection, while the new ports are
+registered as defined, null, or active instead of being left outside the
+type of the theory.  The central claim is modest and structural: the Grand
+Meson is the first complete and last safe mesonic case for a
+three-dimensional observer.
 \end{abstract}
 
 \section{Opening}
 
 A meson is usually approached through its physical role: it mediates an
 interaction.  In the present paper the same word is first read through its
-directional role.  A meson stands between a presented side and a readable
-side.  It is therefore written as
+paired role.  A meson stands between two complementary light-flavor faces.
+In the Yukawa-facing reconstruction used here, that pair is
 \[
-  T\longrightarrow S.
+  \qu\leftrightarrow\qd.
 \]
-This arrow is not yet a full dynamics.  It is the minimum shape of a
-mediator: something is presented at \(T\), something is read at \(S\), and
-the middle term makes the relation nameable.
+This pair is not yet a full dynamics.  It is the minimum shape of a
+mediator: an oriented reading may run \(\qu\to\qd\) or \(\qd\to\qu\), and
+the middle term makes the relation nameable.  Yukawa did not formulate his
+meson with quark flavors; the notation is a present reconstruction of the
+light pair behind the proton--neutron mediation problem.
 
 The former working nickname ``Ethon'' is retired here.  The technical
 object of this paper is the Grand Meson.  The name is structural, not
-honorific: ``grand'' means that a two-port meson has been closed into the
-safe three-axis case.
+honorific: ``grand'' means that a two-port light-pair meson has been closed
+into the safe three-axis case.
 
 \section{The General Meson}
 
-Let the first readable axis be
+Let the Yukawa-facing readable pair be
 \[
-  A_1=\{T,S\}.
+  A_Y=\{\qu,\qd\}.
 \]
 Let \(\mathsf{Pol}\) be a class of admissible mesonic polymers.  The
 smallest implementation may be generated from
@@ -81,21 +90,22 @@ these pseudo-values at this level.
 \begin{definition}[General Meson]
 A General Meson is a two-port mesonic record
 \[
-  m:A_1\to\mathsf{Pol}.
+  m:A_Y\to\mathsf{Pol}.
 \]
 Equivalently,
 \[
-  \mathsf{Gen}:=\mathsf{Pol}^{A_1}.
+  \mathsf{Gen}:=\mathsf{Pol}^{A_Y}.
 \]
-The port \(T\) is the presented boundary.  The port \(S\) is the readable
-boundary.
+The ports \(\qu\) and \(\qd\) are the two light-flavor faces of the
+Yukawa-style mesonic record.
 \end{definition}
 
 This definition deliberately keeps the Yukawa-style mediator idea narrow.
 It does not say that a meson is universal.  It says only that the basic
-mesonic act is readable mediation from \(T\) to \(S\).  In that sense a
-General Meson is the optimal eye for the nuclear-force problem: the source
-and sink boundaries are already specified by the problem itself.
+mesonic act is readable mediation across the \(\qu,\qd\) light pair.  In
+that sense a General Meson is the optimal eye for the nuclear-force
+problem: the proton--neutron transition axis is already specified by the
+problem itself.
 
 \section{The Hidden Cost of Undefined Ports}
 
@@ -112,22 +122,22 @@ theory.
 \begin{definition}[Undefined lift]
 Let
 \[
-  A_3=\{T,S,C,E,U,D\},
+  F_6=\{\qu,\qd,\qc,\qs,\qt,\qb\},
   \qquad
   \mathsf{Pol}_{\bot}:=\mathsf{Pol}\cup\{\bot\}.
 \]
 The undefined lift of a General Meson \(m\in\mathsf{Gen}\) is
 \[
-  L_{\bot}(m):A_3\to\mathsf{Pol}_{\bot}
+  L_{\bot}(m):F_6\to\mathsf{Pol}_{\bot}
 \]
 defined by
 \[
-  L_{\bot}(m)(T)=m(T),\qquad L_{\bot}(m)(S)=m(S),
+  L_{\bot}(m)(\qu)=m(\qu),\qquad L_{\bot}(m)(\qd)=m(\qd),
 \]
 and
 \[
-  L_{\bot}(m)(d)=\bot
-  \quad(d\in A_3\setminus A_1).
+  L_{\bot}(m)(q)=\bot
+  \quad(q\in F_6\setminus A_Y).
 \]
 \end{definition}
 
@@ -152,17 +162,17 @@ the type.
 \begin{definition}[Grand Meson]
 A Grand Meson is a six-port mesonic record
 \[
-  g:A_3\to\mathsf{Pol}.
+  g:F_6\to\mathsf{Pol}.
 \]
 Equivalently,
 \[
-  \mathsf{Grand}:=\mathsf{Pol}^{A_3}.
+  \mathsf{Grand}:=\mathsf{Pol}^{F_6}.
 \]
 The six ports are grouped into three readable axes:
 \[
-  T\leftrightarrow S,\qquad
-  C\leftrightarrow E,\qquad
-  U\leftrightarrow D.
+  \qu\leftrightarrow\qd,\qquad
+  \qc\leftrightarrow\qs,\qquad
+  \qt\leftrightarrow\qb.
 \]
 \end{definition}
 
@@ -177,7 +187,7 @@ been solved.
 \begin{definition}[Registered support]
 For \(g\in\mathsf{Grand}\), define
 \[
-  \supp(g)=\{d\in A_3\mid g(d)\ne\mathbf 0\}.
+  \supp(g)=\{q\in F_6\mid g(q)\ne\mathbf 0\}.
 \]
 A Grand Meson may have inactive ports, but inactivity is registered by
 \(\mathbf 0\), not by \(\bot\).
@@ -189,40 +199,43 @@ The Grand Meson must not destroy the General Meson.  It must contain it as
 the two-port face that was already working.
 
 \begin{definition}[Projection to the General Meson]
-Define the \(T,S\)-projection
+Define the \(\qu,\qd\)-projection
 \[
-  p_{TS}:\mathsf{Grand}\to\mathsf{Gen}
+  p_{\qu\qd}:\mathsf{Grand}\to\mathsf{Gen}
 \]
 by
 \[
-  p_{TS}(g)=g|_{\{T,S\}}.
+  p_{\qu\qd}(g)=g|_{\{\qu,\qd\}}.
 \]
 \end{definition}
 
 \begin{proposition}[Conservative recovery]
-Every General Meson is recovered from any Grand Meson whose \(T,S\)-face
-agrees with it.  In particular, if \(g(T)=m(T)\) and \(g(S)=m(S)\), then
+Every General Meson is recovered from any Grand Meson whose \(\qu,\qd\)-face
+agrees with it.  In particular, if \(g(\qu)=m(\qu)\) and \(g(\qd)=m(\qd)\), then
 \[
-  p_{TS}(g)=m.
+  p_{\qu\qd}(g)=m.
 \]
 \end{proposition}
 
 \begin{proof}
-The projection \(p_{TS}\) discards the four ports outside \(\{T,S\}\) and
-keeps exactly the \(T\)- and \(S\)-values.  Therefore agreement on those
-two ports is sufficient and necessary for recovery.
+The projection \(p_{\qu\qd}\) discards the four ports outside
+\(\{\qu,\qd\}\) and keeps exactly the light-pair values.  Therefore
+agreement on those two ports is sufficient and necessary for recovery.
 \end{proof}
 
 This is the main discipline of the construction.  The Grand Meson does not
-rewrite the older meson.  It keeps the working \(T\to S\) face and opens
-two additional faces under explicit registration.
+rewrite the older meson.  It keeps the working \(\qu\leftrightarrow\qd\)
+face and opens two additional quark-pair faces under explicit registration.
 
-\section{The Einstein Gate}
+\section{Einstein's Gate}
 
 The Grand Meson must also avoid the classical aether failure.  It is not a
 hidden medium with an absolute state of rest.  It is a local six-port
 mediator whose outputs must be readable without introducing an absolute
 frame.
+Einstein's Gate is not a claim of Einstein's endorsement.  It names the
+admissibility condition inherited from relativity: no mesonic theory may
+reintroduce an absolute hidden medium.
 
 \begin{convention}[No absolute mesonic frame]
 No equation in the Grand Meson theory may depend on a privileged global
@@ -230,7 +243,7 @@ rest frame of the mediator.  Only typed ports, local registration, and
 observer-readable projections may be used.
 \end{convention}
 
-This convention is the Einstein gate.  It does not ban mediation.  It bans
+This convention is Einstein's Gate.  It does not ban mediation.  It bans
 absolute mediation.  The Grand Meson is therefore not a return to the
 classical aether.  It is a typed local mediator that must survive
 projection into admissible observations.
@@ -281,7 +294,7 @@ unsafe only when the change crosses a typed boundary without registration.
 Let \(\Reg(u)\) be the registration record of a transition \(u:g\to g'\).
 The transition is Grand-safe when every changed port is registered:
 \[
-  \{d\in A_3\mid g(d)\ne g'(d)\}
+  \{q\in F_6\mid g(q)\ne g'(q)\}
   \subseteq
   \Reg(u).
 \]
@@ -307,10 +320,11 @@ It conservatively recovers the General Meson by projection, replaces
 undefined ports with typed ports, avoids an absolute aether frame, and
 treats safety as registration rather than immobility.
 
-The path is therefore narrow.  Begin with the \(T\to S\) eye that already
-works.  Open \(C\leftrightarrow E\) and \(U\leftrightarrow D\) without
-breaking it.  Stop at \(n=3\) until a future theory can make higher axes
-readable without turning them into a burden of infinite explanation.
+The path is therefore narrow.  Begin with the \(\qu\leftrightarrow\qd\)
+eye that already works.  Open \(\qc\leftrightarrow\qs\) and
+\(\qt\leftrightarrow\qb\) without breaking it.  Stop at \(n=3\) until a
+future theory can make higher axes readable without turning them into a
+burden of infinite explanation.
 
 \begin{thebibliography}{9}
 
