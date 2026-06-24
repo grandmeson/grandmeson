@@ -20,14 +20,17 @@
 \newtheorem{remark}[definition]{Remark}
 \newtheorem{convention}[definition]{Convention}
 \newtheorem{axiom}[definition]{Axiom}
+\newtheorem{conjecture}[definition]{Conjecture}
 
 \theoremstyle{plain}
 \newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
 
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\Read}{Read}
 \DeclareMathOperator{\Cl}{Cl}
-\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\TopCh}{TopCh}
+\DeclareMathOperator{\TopPkg}{TopPkg}
 \DeclareMathOperator{\Dow}{Dow}
 \DeclareMathOperator{\Contr}{Contr}
 \DeclareMathOperator{\Mor}{Mor}
@@ -36,6 +39,12 @@
 \DeclareMathOperator{\ClosedResidue}{ClosedResidue}
 \DeclareMathOperator{\Buried}{Buried}
 \DeclareMathOperator{\RCl}{RCl}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\skel}{skel}
+\DeclareMathOperator{\body}{body}
+\DeclareMathOperator{\AxisCl}{AxisCl}
+\DeclareMathOperator{\CKMCl}{CKMCl}
+\DeclareMathOperator{\Inact}{Inact}
 \newcommand{\qu}{\mathrm u}
 \newcommand{\qd}{\mathrm d}
 \newcommand{\qc}{\mathrm c}
@@ -55,11 +64,12 @@ This paper states a precise operational thesis: the Grand Meson is the
 update procedure that tests how far the meson concept can be stretched after
 the six quark flavors are known, while still recovering the older mesonic
 face without discontinuity.  The starting point is the General Meson: a
-two-face Yukawa-style mediator read, in modern quark language, through the
-light pair \(\qu\leftrightarrow\qd\).  The Grand Meson opens the two
-remaining readable quark-pair axes and thereby becomes a three-axis,
-six-face skeleton whose physical completion is the \(36\) oriented
-\(q\bar r\)-channel mesonic body.  The extension is conservative: the
+two-face Yukawa-style mediator read, by convention, through the modern
+light pair \(\qu\leftrightarrow\qd\).  Given the external six-flavor
+Standard Model input \(F_6\), the Grand Meson completes the two-face object
+to a three-axis, six-face skeleton together with a \(36\) oriented
+\(q\bar r\)-channel index body.  The extension is
+conservative: the
 original two-face meson is recovered by projection, while the new faces and
 body channels are resolved as open, inactive, or active instead of being
 left outside the channel basis.  More precisely, the General Meson is the
@@ -80,8 +90,9 @@ and robustness.
 \section{Opening}
 
 A meson is usually approached through its physical role: it mediates an
-interaction.  In the present paper the same word is first read through its
-paired role.  A meson stands between two complementary light-flavor faces.
+interaction.  In the present paper the same word is first read through a
+paired reconstruction.  In the present reconstruction, the General Meson is
+represented by two complementary light-flavor faces.
 In the Yukawa-facing reconstruction used here, that channel pair is
 \[
   \qu\leftrightarrow\qd.
@@ -90,13 +101,26 @@ This is not a quark--quark bound state.  It is the light-flavor channel face
 from which the QCD readout later forms \(q\bar r\) channels such as
 \(\qu\bar{\qd}\), \(\qd\bar{\qu}\), \(\qu\bar{\qu}\), and
 \(\qd\bar{\qd}\).  Yukawa did not formulate his meson with quark flavors;
-the notation is a present reconstruction of the light pair behind the
-proton--neutron mediation problem.
+the notation is the modern light-flavor pair through which this paper
+rereads the proton--neutron mediation problem.
 
 The former working nickname ``Ethon'' is retired here.  The technical
 object of this paper is the Grand Meson.  The name is structural, not
-honorific: ``grand'' means that a two-channel light-pair meson has been closed
-into the admissible three-axis case.
+honorific: ``grand'' means that, after the six-flavor Standard Model input
+is supplied, a two-face light-pair reconstruction is embedded into the
+admissible three-axis bookkeeping case.
+
+\begin{convention}[Yukawa-facing reconstruction]
+The implication
+\[
+  \text{Yukawa mediator}\quad\leadsto\quad
+  A_Y=\{\qu,\qd\}
+\]
+is not a historical or physical derivation.  It is the convention used in
+this paper: the Yukawa mediator problem is read through the modern light
+flavor pair \(\qu,\qd\).  All claims about the General Meson begin only
+after this reconstruction has been fixed.
+\end{convention}
 
 \section{Operational Thesis}
 
@@ -112,11 +136,19 @@ to make the following claim explicit:
 The corresponding robustness condition is exact projection back to the
 older face:
 \[
+\begin{aligned}
   \text{mesonic robustness}
-  =
-  \bigl(p_{\qu\qd}(g)=m\bigr)
-  \ \wedge\
-  \ClosedResidue_{g\Downarrow m}\bigl(R_{\perp}(g)\bigr).
+  ={}&
+  \bigl(p^{\mathrm{raw}}_{\qu\qd}(g)=m\bigr)
+  \\
+  &{}\wedge
+  \ClosedResidue^{\mathrm{face}}_{d}
+  \bigl(R^{\mathrm{face}}_{\perp}(g)\bigr)
+  \\
+  &{}\wedge
+  \ClosedResidue^{\mathrm{body}}_{U}
+  \bigl(R^{\mathrm{body}}_{\perp}(G)\bigr).
+\end{aligned}
 \]
 Thus the paper is an update manual for mesonic channel operations and a
 verification of operational continuity.  A Grand Meson statement is
@@ -136,6 +168,26 @@ Let the six known quark flavors be
 \[
   F_6=\{\qu,\qd,\qc,\qs,\qt,\qb\}.
 \]
+
+\begin{convention}[Six-flavor input]
+The passage from the General Meson to the Grand Meson is not an internal
+theorem of the two-face object.  It is the completion problem obtained
+after the six known quark flavors \(F_6\) are supplied as external Standard
+Model input:
+\[
+  \mathsf{Grand}
+  =
+  \mathrm{Completion}_{F_6}(\mathsf{Gen}).
+\]
+The symbol \(\mathrm{Completion}_{F_6}\) is only announced here; it is
+defined below by the body zero extension
+\(z^{\mathrm{body}}\), the missing-channel completion
+\(\mathcal C_{\mathrm{GM}}\), and the skeleton map \(\skel\).
+Thus the additional \(\qc,\qs,\qt,\qb\) directions are not inferred from
+the Yukawa-facing face alone; they are admitted because the target channel
+basis is the present six-flavor mesonic sector.
+\end{convention}
+
 The physical body of a mesonic channel is not a single flavor face but an
 oriented quark--antiquark channel
 \[
@@ -178,43 +230,127 @@ Dirac/spin-parity sector,
 \(C_{q\bar r,\bullet}\) denotes the corresponding correlator family, and
 \(K_{\mathrm{QCD}}\) denotes the ordinary QCD conservation data.  Set
 \[
+  \mathsf{PrePol}_{q\bar r}
+  :=
+  \{\,P_{q\bar r}\mid
+  P_{q\bar r}\ \text{is a well-typed package of the displayed form}\,\}.
+\]
+\[
+  \mathsf{PrePol}
+  :=
+  \bigsqcup_{q,r\in F_6}\mathsf{PrePol}_{q\bar r}.
+\]
+\[
   \mathsf{Pol}_{q\bar r}
   :=
-  \{\,P_{q\bar r}\mid P_{q\bar r}\ \text{satisfies the closure suite below}\,\},
-  \qquad
+  \{\,P\in\mathsf{PrePol}_{q\bar r}\mid
+    \Cl(P)=\Cl_{\mathrm{GM}}\,\}.
+\]
+\[
   \mathsf{Pol}
   :=
   \bigsqcup_{q,r\in F_6}\mathsf{Pol}_{q\bar r}.
 \]
-Thus \(\mathsf{Pol}\) is not an arbitrary symbol set.  It is the disjoint
-union of closed source--operator--quantum-number--correlator packages for
-oriented mesonic channels.
+Thus \(\mathsf{PrePol}\) is the inspection space and \(\mathsf{Pol}\) is
+the closed subspace.  The closure predicates below may be evaluated on
+\(\mathsf{PrePol}\); only packages passing them inhabit \(\mathsf{Pol}\).
 \end{definition}
 
 \begin{definition}[Grand Meson closure suite]
 Let
 \[
+\begin{aligned}
+  \Cl_{\mathrm{QCD}}
+  &:=
+  \{\mathrm{Color}_1,\mathrm{Lorentz},\mathrm{Charge},
+    \mathrm{Flavor}\},
+  \\
+  \Cl_{\mathrm{weak}}
+  &:=
+  \{\mathrm{CKMCl},\mathrm{TopPkg}\},
+  \\
+  \Cl_{\mathrm{readout}}
+  &:=
+  \{\mathrm{Threshold},\mathrm{Observable}\}.
+\end{aligned}
+\]
+The Grand Meson closure suite is the layered union
+\[
   \Cl_{\mathrm{GM}}
   :=
-  \{\mathrm{Color}_1,\mathrm{Lorentz},\mathrm{Charge},
-    \mathrm{Flavor},\mathrm{CKM},\mathrm{Top},
-    \mathrm{Threshold},\mathrm{Observable}\}.
+  \Cl_{\mathrm{QCD}}\cup\Cl_{\mathrm{weak}}\cup\Cl_{\mathrm{readout}}.
 \]
 For a channel package \(P\), \(\Cl(P)\subseteq\Cl_{\mathrm{GM}}\) is the
 set of closure tests satisfied by \(P\).  A package is Grand-closed when
 \[
   \Cl(P)=\Cl_{\mathrm{GM}}.
 \]
-For a downgrade or transition symbol \(s\), \(\RCl(s)\) denotes the
-residual faces or channels closed by that symbol.  Thus \(\Cl(P)\) is a
-test-suite value of a package, while \(\RCl(s)\) is a residual-closure set
-attached to an operation symbol; the two types are not identified.
-The tests mean, respectively: color singletness, Lorentz covariance,
-electric-charge conservation, flavor bookkeeping, weak charged-current CKM
-closure, top-axis weak-virtual closure, threshold or decay closure, and an
-observable readout.  A Grand Meson contradiction is therefore not a private
-logical label; it is a failure of a proposed channel symbol to inhabit the
-standard-model-compatible closure suite.
+The entries of \(\Cl_{\mathrm{GM}}\) are predicates on a package:
+\[
+  \begin{gathered}
+  \mathrm{Color}_1(P),\ \mathrm{Lorentz}(P),\
+  \mathrm{Charge}(P),\ \mathrm{Flavor}(P),\\
+  \CKMCl(P),\ \TopPkg(P),\
+  \mathrm{Threshold}(P),\ \mathrm{Observable}(P).
+  \end{gathered}
+\]
+For residual closure we use typed predicates rather than one untyped set:
+\[
+  \RCl_{\mathrm{face}}(d)\subseteq F_6,\qquad
+  \RCl_{\mathrm{body}}(U)\subseteq F_6\times\overline{F_6}.
+\]
+Let \(\mathsf{ClosureObjects}\) be the typed disjoint union of closure
+witnesses used in this paper: QCD closure witnesses, weak-current closure
+witnesses, top-exit witnesses, threshold witnesses, observable-readout
+witnesses, and residual-closure records.
+The channel residual-closure assignment type is
+\[
+  \mathsf{ChResType}
+  :=
+  \left\{
+  \mathcal R_{\mathrm{ch}}
+  \ \middle|\
+  \mathcal R_{\mathrm{ch}}(q\bar r)\subseteq\mathsf{ClosureObjects}
+  \text{ for all }q,r\in F_6
+  \right\}.
+\]
+Here \(d\) is a face downgrade symbol and \(U\) is a body transition
+symbol.  Thus \(\Cl(P)\) is a test-suite value of a package, while
+\(\RCl_{\mathrm{face}}\), \(\RCl_{\mathrm{body}}\), and
+\(\mathsf{ChResType}\) are residual-closure data of different types.
+The QCD layer contains color singletness, Lorentz covariance,
+electric-charge conservation, and flavor bookkeeping.  The weak layer
+contains charged-current CKM closure and top-axis weak-virtual closure.
+The readout layer contains threshold or decay closure and observable
+readout.  The paper never treats CKM closure as a color-QCD closure; it is
+an additional weak-current closure condition carried by the Grand Meson
+package.
+The weak predicates are conditional predicates:
+\[
+  \CKMCl(P)
+  \quad\text{is vacuous unless }P\text{ uses a weak charged current,}
+\]
+and
+\[
+  \TopPkg(P_{q\bar r})
+  \quad\text{is vacuous unless }q=\qt\text{ or }r=\qt.
+\]
+For a top-bearing package, \(\TopPkg(P_{q\bar r})\) is satisfied only
+when the weak-virtual top-exit closure defined below is supplied.
+\end{definition}
+
+\begin{definition}[Typed Grand Meson contradiction]
+A Grand Meson contradiction is not a contradiction of QCD.  It is the
+impossibility of inhabiting the declared Grand Meson readout or transition
+space.  We use the typed family
+\[
+  \Contr_{\mathrm{dow}}(d),\qquad
+  \Contr_{\mathrm{top}}(P_{q\bar r};\mathcal R_{\mathrm{ch}}),\qquad
+  \Contr_{\bar F}(O_{q\bar r}\equiv O_{s\bar t}),\qquad
+  \Contr_{\mathrm{tr}}(U).
+\]
+The shorthand \(\Contr_{\mathrm{GM}}\) refers to this disjoint family only
+when the input type is clear from context.
 \end{definition}
 
 \begin{definition}[Inactive residual package]
@@ -223,7 +359,8 @@ Let
   \mathsf{Prov}_{0}
   :=
   \{\mathrm{selection},\mathrm{kinematic},\mathrm{coupling},
-    \mathrm{sensitivity},\mathrm{integrated},\mathrm{buried}\}.
+    \mathrm{sensitivity},\mathrm{integrated},\mathrm{buried},
+    \mathrm{fuse}\}.
 \]
 For each oriented channel \(q\bar r\), define a closed inactive package
 \[
@@ -250,8 +387,47 @@ Set
   :=
   \bigsqcup_{q,r\in F_6}\mathsf{Pol}^{\mathrm{res}}_{q\bar r}.
 \]
-At the face-skeleton level we write \(\mathbf 0_q[\rho]\) for the
-corresponding closed inactive family of packages incident to the face \(q\).
+The corresponding pre-closure residual type is
+\[
+  \mathsf{PrePol}^{\mathrm{res}}_{q\bar r}
+  :=
+  \mathsf{PrePol}_{q\bar r}\cup
+  \{\,\mathbf 0_{q\bar r}[\rho]
+  \mid
+  \rho\in\mathsf{Prov}_{0}\,\}.
+\]
+\end{definition}
+
+\begin{definition}[Face package]
+A flavor face is not itself an oriented mesonic channel.  It is the full
+family of oriented channels incident to that face relative to a chosen
+flavor domain \(S\subseteq F_6\):
+\[
+  \mathsf{Face}^{\mathrm{res}}_{q|S}
+  :=
+  \prod_{r\in S}\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}
+  \times
+  \prod_{s\in S}\mathsf{PrePol}^{\mathrm{res}}_{s\bar q}.
+\]
+Write \(\mathsf{Face}^{\mathrm{res}}_{q}:=
+\mathsf{Face}^{\mathrm{res}}_{q|F_6}\) for the full Grand Meson face.
+The closed inactive face package is therefore
+\[
+  \mathbf 0_{q|S}[\rho]
+  :=
+  \left(
+    (\mathbf 0_{q\bar r}[\rho])_{r\in S},\
+    (\mathbf 0_{s\bar q}[\rho])_{s\in S}
+  \right)
+  \in \mathsf{Face}^{\mathrm{res}}_{q|S}.
+\]
+Write \(\mathbf 0_q[\rho]:=\mathbf 0_{q|F_6}[\rho]\).
+Set
+\[
+  \mathsf{Face}^{\mathrm{res}}
+  :=
+  \prod_{q\in F_6}\mathsf{Face}^{\mathrm{res}}_q .
+\]
 \end{definition}
 
 \section{The General Meson}
@@ -270,30 +446,80 @@ these pseudo-values before a \(q\bar r\)-channel package is supplied.
 \begin{remark}[Role of \(\mathsf{Pol}\)]
 \(\mathsf{Pol}\) denotes the active closed mesonic package space above, and
 \(\mathsf{Pol}^{\mathrm{res}}\) adds closed inactive residual packages.
-The earlier six-face notation remains useful as a scaffolding, but the
-physical mesonic body lives over \(F_6\times\overline{F_6}\).
+Containers such as faces and bodies use \(\mathsf{PrePol}^{\mathrm{res}}\)
+so that closure tests can still reject an open active package at readout
+time.
+The six-face notation is therefore a skeleton notation built from
+\(\mathsf{Face}^{\mathrm{res}}_q\).  The physical mesonic body lives over
+\(F_6\times\overline{F_6}\).
 \end{remark}
 
 \begin{definition}[General Meson]
-A General Meson is a two-channel mesonic configuration
+A raw General Meson is a two-face mesonic skeleton
 \[
-  m:A_Y\to\mathsf{Pol}^{\mathrm{res}}.
+  m\in
+  \mathsf{Gen}^{\mathrm{raw}}
+  :=
+  \prod_{q\in A_Y}\mathsf{Face}^{\mathrm{res}}_{q|A_Y}.
 \]
-Equivalently,
+Its inspectable oriented UD body is
 \[
-  \mathsf{Gen}:=(\mathsf{Pol}^{\mathrm{res}})^{A_Y}.
+  \mathsf{PreBody}_{Y}
+  :=
+  \prod_{q,r\in A_Y}\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}.
 \]
+Its closed oriented UD body is
+\[
+  \mathsf{Body}_{Y}^{\mathrm{cl}}
+  :=
+  \{\,M\in\mathsf{PreBody}_{Y}\mid
+  \Inact(M(q,\bar r))\ \text{or}\
+  \Cl(M(q,\bar r))=\Cl_{\mathrm{GM}}
+  \text{ for all }q,r\in A_Y\,\}.
+\]
+Define the UD skeleton map
+\[
+  \skel_Y:\mathsf{PreBody}_{Y}\longrightarrow\mathsf{Gen}^{\mathrm{raw}}
+\]
+by
+\[
+  \skel_Y(M)(q)
+  :=
+  \left(
+    (M(q,\bar r))_{r\in A_Y},\
+    (M(s,\bar q))_{s\in A_Y}
+  \right).
+\]
+The glued General Meson is
+\[
+  \mathsf{Gen}_{\mathrm{comp}}
+  :=
+  \operatorname{Im}
+  \bigl(\skel_Y:\mathsf{Body}_{Y}^{\mathrm{cl}}
+  \to\mathsf{Gen}^{\mathrm{raw}}\bigr)
+  \subseteq
+  \mathsf{Gen}^{\mathrm{raw}}.
+\]
+The map \(\skel_Y\) is injective, since each \(M(q,\bar r)\) occurs in
+the outgoing family of the \(q\)-face.  Hence a glued General Meson has a
+unique body, denoted \(\body_Y(m)\).  From this point onward, unqualified
+\(\mathsf{Gen}\) means \(\mathsf{Gen}_{\mathrm{comp}}\).
 The faces \(\qu\) and \(\qd\) are the two light-flavor faces of the
-Yukawa-style mesonic channel.  They are channel faces, not the two
-constituents of a physical meson.
+Yukawa-style mesonic channel.  They are face packages, not two constituents
+of a physical meson.  The physical body supplied by those faces is the four
+oriented UD channels
+\[
+  \qu\bar{\qu},\quad \qu\bar{\qd},\quad
+  \qd\bar{\qu},\quad \qd\bar{\qd}.
+\]
 \end{definition}
 
 This definition deliberately keeps the Yukawa-style mediator idea narrow.
 It does not say that a meson is universal.  It says only that the basic
 mesonic act is readable mediation across the \(\qu,\qd\) light pair.  In
-that sense a General Meson is the optimal eye for the nuclear-force
-problem: the proton--neutron transition axis is already specified by the
-problem itself.
+that restricted sense, the General Meson is a deliberately narrow readout
+for the nuclear-force problem: the proton--neutron transition axis is
+specified by the reconstruction convention.
 The light-pair configuration is not by itself a derivation of the Yukawa
 potential.  That recovery belongs to the low-energy pion channel after the
 QCD readout has supplied \(q\bar r\) operators, quantum numbers, and
@@ -308,7 +534,9 @@ active contribution.  A missing channel has not entered the channel basis.
 \[
   \mathbf 0=\text{resolved inactive channel},
   \qquad
-  \bot=\text{missing channel}.
+  \bot_{q\bar r}=\text{missing oriented channel},
+  \qquad
+  \bot_q=\text{missing face}.
 \]
 
 \begin{definition}[Inactive-channel provenance]
@@ -328,23 +556,71 @@ contribution are not collapsed into the same physical claim.
 \end{definition}
 
 \begin{definition}[Missing-channel lift]
-Let
-\[
-  \mathsf{Pol}_{\bot}:=\mathsf{Pol}^{\mathrm{res}}\cup\{\bot\}.
-\]
 The missing-channel lift of a General Meson \(m\in\mathsf{Gen}\) is
 \[
-  L_{\bot}(m):F_6\to\mathsf{Pol}_{\bot}
+  L_{\bot}(m)\in
+  \prod_{q\in F_6}\mathsf{Face}^{\bot}_{q|F_6},
 \]
-defined by
+where
 \[
-  L_{\bot}(m)(\qu)=m(\qu),\qquad L_{\bot}(m)(\qd)=m(\qd),
+  \mathsf{Face}^{\bot}_{q|S}
+  :=
+  \prod_{r\in S}
+    \bigl(\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}\cup\{\bot_{q\bar r}\}\bigr)
+  \times
+  \prod_{s\in S}
+    \bigl(\mathsf{PrePol}^{\mathrm{res}}_{s\bar q}\cup\{\bot_{s\bar q}\}\bigr).
 \]
-and
+For \(q\in A_Y\), \(L_{\bot}(m)(q)\) agrees with \(m(q)\) on the incident
+UD slots and assigns the appropriate missing symbols to every incident
+slot whose other endpoint lies outside \(A_Y\).  For \(q\notin A_Y\), every
+incident slot of \(L_{\bot}(m)(q)\) is missing; this face is written
+\(\bot_{q|F_6}\).
+\end{definition}
+
+\begin{definition}[Componentwise missing-channel completion]
+Missing channels do not become inactive by inference.  They become inactive
+only by the Grand completion operator
 \[
-  L_{\bot}(m)(q)=\bot
-  \quad(q\in F_6\setminus A_Y).
+  \mathcal C_{\mathrm{GM}}.
 \]
+On an already supplied oriented package, it is the identity:
+\[
+  \mathcal C_{\mathrm{GM}}(P)=P
+  \qquad
+  (P\in\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}).
+\]
+On an oriented missing channel it is defined by
+\[
+  \mathcal C_{\mathrm{GM}}(\bot_{q\bar r})
+  :=
+  \mathbf 0_{q\bar r}[\mathrm{buried}],
+\]
+and on a missing face carrying its relative domain \(S\subseteq F_6\), by
+\[
+  \mathcal C_{\mathrm{GM}}(\bot_{q|S})
+  :=
+  \mathbf 0_{q|S}[\mathrm{buried}].
+\]
+The operator extends componentwise to partial face skeletons and partial
+body skeletons: it fixes every supplied package and sends every missing
+entry to the corresponding buried inactive package.  Therefore
+\(\mathcal C_{\mathrm{GM}}(L_{\bot}(m))\) means componentwise completion of
+all missing entries of \(L_{\bot}(m)\) while leaving the already supplied
+UD data unchanged.
+Thus
+\[
+  \bot_{q\bar r}
+  \not\equiv
+  \mathbf 0_{q\bar r}[\mathrm{buried}],
+  \qquad
+  \mathcal C_{\mathrm{GM}}(\bot_{q\bar r})
+  =
+  \mathbf 0_{q\bar r}[\mathrm{buried}].
+\]
+The first formula preserves the distinction between absent and inactive;
+the second formula names the completion rule that upgrades an absent
+channel into a present, closed, inactive residual package.
 \end{definition}
 
 Thus the remaining axes are not false, not zero, and not disproved.  They
@@ -361,20 +637,22 @@ other axis.
 
 \section{The Grand Meson Face Skeleton}
 
-The first layer of the Grand Meson is obtained by replacing missing flavor
-faces with resolved flavor faces.  This is the face skeleton.  It is not
-yet the full mesonic operator body; physical mesons enter through the
-oriented \(q\bar r\)-channel completion defined later.
+Given the external six-flavor Standard Model input \(F_6\), the first layer
+of the Grand Meson is obtained by completing missing flavor faces into
+resolved flavor faces.  This is the raw face skeleton.  It is not yet the
+full mesonic operator body; physical mesons enter through the oriented
+\(q\bar r\)-channel completion defined later.
 
 \begin{definition}[Grand Meson face skeleton]
-A Grand Meson first appears as a six-face mesonic skeleton
+A Grand Meson first appears as a raw six-face mesonic skeleton
 \[
-  g:F_6\to\mathsf{Pol}^{\mathrm{res}}.
+  g\in\mathsf{Grand}^{\mathrm{raw}}
+  :=
+  \prod_{q\in F_6}\mathsf{Face}^{\mathrm{res}}_q .
 \]
-Equivalently,
-\[
-  \mathsf{Grand}:=(\mathsf{Pol}^{\mathrm{res}})^{F_6}.
-\]
+This raw product is larger than the body-compatible Grand Meson defined
+later: it has not yet imposed that the same \(q\bar r\) package agrees when
+read from the \(q\)-face and from the \(r\)-face.
 The six faces are grouped into three readable axes:
 \[
   \qu\leftrightarrow\qd,\qquad
@@ -388,20 +666,49 @@ enter through oriented \(q\bar r\) channels in the QCD readout.
 
 In this notation the Grand Meson is the admissible \(n=3\) object:
 \[
-  \mathsf{Grand}=(\mathsf{Pol}^{\mathrm{res}})^{2\cdot 3}.
+  \mathsf{Grand}^{\mathrm{raw}}
+  =
+  \prod_{q\in F_6}\mathsf{Face}^{\mathrm{res}}_q
+  \qquad(n=3).
 \]
 The adjective ``admissible'' means that all three axes belong to the
-channel basis.  It does not mean that every transition is allowed, nor that
-every physical theory has been solved.
+channel basis after the external six-flavor input has been supplied.  It
+does not mean that every transition is allowed, nor that every physical
+theory has been solved.
 
 \begin{definition}[Channel support]
-For \(g\in\mathsf{Grand}\), define
+For an oriented package, write
 \[
-  \supp(g)=
-  \{q\in F_6\mid g(q)\ne\mathbf 0_q[\rho]\ \text{for every }\rho\}.
+  \Inact(P_{q\bar r})
+  \quad\Longleftrightarrow\quad
+  P_{q\bar r}=\mathbf 0_{q\bar r}[\rho]
+  \text{ for some }\rho\in\mathsf{Prov}_{0}.
+\]
+Also write
+\[
+  \Buried(P_{q\bar r})
+  \quad\Longleftrightarrow\quad
+  P_{q\bar r}=\mathbf 0_{q\bar r}[\mathrm{buried}].
+\]
+For a face package \(f_q\in\mathsf{Face}^{\mathrm{res}}_q\), write
+\(\Inact(f_q)\) when every incident oriented component of \(f_q\) is
+inactive, allowing different provenance tags on different incident
+channels.  The predicate is overloaded on face packages by
+\[
+  \Buried(f_q)
+  \quad\Longleftrightarrow\quad
+  \text{every incident component of }f_q
+  \text{ is }\mathbf 0[\mathrm{buried}]
+  \text{ in its own channel type}.
+\]
+For \(g\in\mathsf{Grand}^{\mathrm{raw}}\), define the face support by
+\[
+  \supp_{\mathrm{face}}(g)
+  =
+  \{q\in F_6\mid \neg\Inact(g(q))\}.
 \]
 A Grand Meson may have inactive channels, but inactivity is resolved by
-\(\mathbf 0_q[\rho]\), not by \(\bot\).
+channelwise residual packages, not by \(\bot\).
 \end{definition}
 
 \section{Conservative Recovery}
@@ -409,31 +716,35 @@ A Grand Meson may have inactive channels, but inactivity is resolved by
 The Grand Meson must not destroy the General Meson.  It must contain it as
 the two-channel face that was already working.
 
-\begin{definition}[Projection to the General Meson]
-Define the \(\qu,\qd\)-projection
+\begin{definition}[Raw projection to the General Meson]
+Define the raw \(\qu,\qd\)-projection
 \[
-  p_{\qu\qd}:\mathsf{Grand}\to\mathsf{Gen}
+  p^{\mathrm{raw}}_{\qu\qd}:
+  \mathsf{Grand}^{\mathrm{raw}}\to\mathsf{Gen}^{\mathrm{raw}}
 \]
 by
 \[
-  p_{\qu\qd}(g)=g|_{\{\qu,\qd\}}.
+  p^{\mathrm{raw}}_{\qu\qd}(g)(q)=g(q)|_{A_Y}
+  \quad(q\in A_Y),
 \]
+where \(g(q)|_{A_Y}\) forgets every incident channel outside
+\(A_Y\times\overline{A_Y}\).
 \end{definition}
 
 \begin{proposition}[Conservative recovery]
-Every General Meson is recovered from any Grand Meson whose \(\qu,\qd\)-face
-agrees with it.  In particular, if \(g(\qu)=m(\qu)\) and \(g(\qd)=m(\qd)\), then
+Every raw General Meson is recovered from any raw Grand Meson whose restricted
+\(\qu,\qd\)-faces agree with it.  In particular, if
+\(g(q)|_{A_Y}=m(q)\) for \(q\in A_Y\), then
 \[
-  p_{\qu\qd}(g)=m.
+  p^{\mathrm{raw}}_{\qu\qd}(g)=m.
 \]
 \end{proposition}
 
 \begin{proof}
-The restriction \(p_{\qu\qd}\) reads exactly the light-pair values.  The
-full recovery as a Grand Meson subobject is performed by
-\(\beta_{\qu\qd}\), which closes every non-UD face as a buried inactive
-package.  Therefore agreement on the two UD channels is sufficient and
-necessary for recovery after burial.
+The restriction \(p^{\mathrm{raw}}_{\qu\qd}\) reads exactly the two
+light-face packages.
+Therefore agreement on those two faces is sufficient and necessary for the
+stated projection recovery.
 \end{proof}
 
 This is the main discipline of the construction.  The Grand Meson does not
@@ -448,25 +759,34 @@ General Meson must be obtainable as the visible face of at least one Grand
 Meson.
 
 \begin{definition}[Zero extension]
-For \(m\in\mathsf{Gen}\), define the zero extension
+For \(m\in\mathsf{Gen}^{\mathrm{raw}}\), define the raw zero extension
 \[
-  z(m):F_6\to\mathsf{Pol}^{\mathrm{res}}
+  z^{\mathrm{raw}}(m)\in\mathsf{Grand}^{\mathrm{raw}}
 \]
-by
+as follows.  For \(q\in A_Y\), let \(\widehat m_q\in
+\mathsf{Face}^{\mathrm{res}}_q\) be the full-face extension that agrees
+with \(m(q)\) on the incident UD channels and assigns
+\(\mathbf 0_{a\bar b}[\mathrm{buried}]\) to every incident channel
+outside \(A_Y\times\overline{A_Y}\).  Then
 \[
-  z(m)(\qu)=m(\qu),\qquad z(m)(\qd)=m(\qd),
+  z^{\mathrm{raw}}(m)(\qu)=\widehat m_{\qu},\qquad
+  z^{\mathrm{raw}}(m)(\qd)=\widehat m_{\qd},
 \]
 and
 \[
-  z(m)(q)=\mathbf 0_q[\mathrm{buried}]
+  z^{\mathrm{raw}}(m)(q)=\mathbf 0_q[\mathrm{buried}]
   \qquad(q\in F_6\setminus A_Y).
 \]
 \end{definition}
 
 \begin{proposition}[Surjective backward map]
-The projection \(p_{\qu\qd}:\mathsf{Grand}\to\mathsf{Gen}\) is surjective:
+The projection
+\(p^{\mathrm{raw}}_{\qu\qd}:\mathsf{Grand}^{\mathrm{raw}}\to
+\mathsf{Gen}^{\mathrm{raw}}\) satisfies
+surjective:
 \[
-  p_{\qu\qd}\circ z=\mathrm{id}_{\mathsf{Gen}}.
+  p^{\mathrm{raw}}_{\qu\qd}\circ z^{\mathrm{raw}}
+  =\mathrm{id}_{\mathsf{Gen}^{\mathrm{raw}}}.
 \]
 \end{proposition}
 
@@ -481,21 +801,19 @@ Define the UD-burial subobject
 \[
   \mathsf{Grand}_{\qu\qd}^{0}
   :=
-  \{\,g\in\mathsf{Grand}\mid
-  g(q)=\mathbf 0_q[\mathrm{buried}]
-  \ \text{for every }q\in F_6\setminus A_Y\,\}.
+  z^{\mathrm{raw}}(\mathsf{Gen}^{\mathrm{raw}})
+  =
+  \{\,z^{\mathrm{raw}}(m)\mid m\in\mathsf{Gen}^{\mathrm{raw}}\,\}.
 \]
 The burial normalization
 \[
-  \beta_{\qu\qd}:\mathsf{Grand}\longrightarrow\mathsf{Grand}_{\qu\qd}^{0}
+  \beta_{\qu\qd}:\mathsf{Grand}^{\mathrm{raw}}\longrightarrow
+  \mathsf{Grand}_{\qu\qd}^{0}
 \]
 is defined by
 \[
-  \beta_{\qu\qd}(g)(q)=g(q)
-  \quad(q\in A_Y),
-  \qquad
-  \beta_{\qu\qd}(g)(q)=\mathbf 0_q[\mathrm{buried}]
-  \quad(q\in F_6\setminus A_Y).
+  \beta_{\qu\qd}(g):=
+  z^{\mathrm{raw}}(p^{\mathrm{raw}}_{\qu\qd}(g)).
 \]
 Here \(\mathbf 0_q[\mathrm{buried}]\) is a closed inactive residual package,
 not a deletion and not an absent channel.  Other provenance tags describe
@@ -506,25 +824,29 @@ uses the buried tag.
 \begin{proposition}[General Meson as buried Grand Meson]
 Restriction to the UD face gives an isomorphism
 \[
-  \mathsf{Grand}_{\qu\qd}^{0}\cong\mathsf{Gen}.
+  \mathsf{Grand}_{\qu\qd}^{0}\cong\mathsf{Gen}^{\mathrm{raw}}.
 \]
 More explicitly,
 \[
-  p_{\qu\qd}|_{\mathsf{Grand}_{\qu\qd}^{0}}
-  :\mathsf{Grand}_{\qu\qd}^{0}\to\mathsf{Gen}
+  p^{\mathrm{raw}}_{\qu\qd}|_{\mathsf{Grand}_{\qu\qd}^{0}}
+  :\mathsf{Grand}_{\qu\qd}^{0}\to\mathsf{Gen}^{\mathrm{raw}}
 \]
-has inverse \(z:\mathsf{Gen}\to\mathsf{Grand}_{\qu\qd}^{0}\).
+has inverse
+\(z^{\mathrm{raw}}:\mathsf{Gen}^{\mathrm{raw}}\to
+\mathsf{Grand}_{\qu\qd}^{0}\).
 \end{proposition}
 
 \begin{proof}
-For \(h\in\mathsf{Grand}_{\qu\qd}^{0}\), the non-UD faces are fixed closed
-inactive packages, so \(h\) is determined exactly by \(h(\qu)\) and
-\(h(\qd)\).  Conversely, \(z(m)\) preserves \(m\) on \(A_Y\) and fills
-every other face with a closed inactive package.  Hence
+By definition, every \(h\in\mathsf{Grand}_{\qu\qd}^{0}\) has the form
+\(h=z^{\mathrm{raw}}(m)\) for a unique
+\(m\in\mathsf{Gen}^{\mathrm{raw}}\).  Conversely, \(z^{\mathrm{raw}}(m)\)
+preserves the UD-restricted face data of \(m\) and fills every incident
+non-UD channel with a closed inactive package.  Hence
 \[
-  p_{\qu\qd}\circ z=\mathrm{id}_{\mathsf{Gen}},
+  p^{\mathrm{raw}}_{\qu\qd}\circ z^{\mathrm{raw}}
+  =\mathrm{id}_{\mathsf{Gen}^{\mathrm{raw}}},
   \qquad
-  z\circ p_{\qu\qd}
+  z^{\mathrm{raw}}\circ p^{\mathrm{raw}}_{\qu\qd}
   =
   \mathrm{id}_{\mathsf{Grand}_{\qu\qd}^{0}}.
 \]
@@ -535,19 +857,54 @@ ordinary General Meson by burying the non-UD faces as closed inactive
 packages.  The same operation also carries responsibility, because active
 non-UD structure must be closed as residue rather than ignored.
 
-\begin{definition}[Downgrade residue and closure]
-For \(g\in\mathsf{Grand}\), define the downgrade residue
+\begin{axiom}[Grand Meson downgrade admissibility]
+Recoverability is not the same as downgrade admissibility:
 \[
-  R_{\perp}(g):=g|_{F_6\setminus A_Y}.
+  p^{\mathrm{raw}}_{\qu\qd}(g)=m
+  \not\Rightarrow
+  d\in\Dow_{\mathrm{GM}}(g,m).
 \]
-For a proposed downgrade symbol \(d:g\Downarrow m\), define
-\begin{align*}
-  \ClosedResidue_d(R_{\perp}(g))
+A proposed downgrade \(d:g\Downarrow m\) is admissible only when it both
+recovers the General Meson face and supplies closed residual witnesses for
+the non-UD data:
+\[
+  d\in\Dow_{\mathrm{GM}}(g,m)
   \quad\Longleftrightarrow\quad
-  &d\ \text{factors through }\beta_{\qu\qd}(g),\\
-  &\beta_{\qu\qd}(g)(q)=\mathbf 0_q[\mathrm{buried}]
-    \quad \forall q\notin A_Y .
-\end{align*}
+  p^{\mathrm{raw}}_{\qu\qd}(g)=m
+  \ \text{and}\
+  \ClosedResidue^{\mathrm{face}}_{d}
+  (R^{\mathrm{face}}_{\perp}(g)).
+\]
+Thus residue responsibility is an explicit Grand Meson admissibility rule,
+not a theorem following from
+\(p^{\mathrm{raw}}_{\qu\qd}\circ z^{\mathrm{raw}}=\mathrm{id}\).
+\end{axiom}
+
+\begin{definition}[Downgrade residue and closure]
+For \(g\in\mathsf{Grand}^{\mathrm{raw}}\), define the downgrade residue
+\[
+  R^{\mathrm{face}}_{\perp}(g):=g|_{F_6\setminus A_Y}
+\]
+and its non-buried residue support
+\[
+  S^{\mathrm{face}}_{\perp}(g)
+  :=
+  \{\,q\in F_6\setminus A_Y\mid
+  \neg\Buried(g(q))\,\}.
+\]
+For a proposed downgrade symbol \(d:g\Downarrow m\), the predicate
+\[
+  \ClosedResidue^{\mathrm{face}}_d(R^{\mathrm{face}}_{\perp}(g))
+\]
+means that \(d\) carries a residual witness
+\[
+  \chi_d:S^{\mathrm{face}}_{\perp}(g)\longrightarrow
+  \RCl_{\mathrm{face}}(d)
+\]
+and that every face in \(S^{\mathrm{face}}_{\perp}(g)\) is sent by the
+normalization to the closed inactive family
+\(\mathbf 0_q[\mathrm{buried}]\).  Projection alone is therefore not a
+downgrade; projection plus residual witness is.
 For a proposed downgrade symbol \(d:g\Downarrow m\), define the Grand
 Meson downgrade class
 \[
@@ -555,25 +912,26 @@ Meson downgrade class
   :=
   \{\,d:g\Downarrow m
   \mid
-  p_{\qu\qd}(g)=m
+  p^{\mathrm{raw}}_{\qu\qd}(g)=m
   \ \mathrm{and}\
-  \ClosedResidue_d(R_{\perp}(g))\,\}.
+  \ClosedResidue^{\mathrm{face}}_d(R^{\mathrm{face}}_{\perp}(g))\,\}.
 \]
 The contradiction predicate is
 \[
-  \Contr_{\mathrm{GM}}(d)
+  \Contr_{\mathrm{dow}}(d)
   :=
-  \bigl(p_{\qu\qd}(g)=m\bigr)
+  \bigl(p^{\mathrm{raw}}_{\qu\qd}(s(d))=t(d)\bigr)
   \wedge
-  \bigl(R_{\perp}(g)\not\equiv
-    \{\mathbf 0_q[\mathrm{buried}]\}_{q\notin A_Y}\bigr)
+  \bigl(S^{\mathrm{face}}_{\perp}(s(d))\ne\varnothing\bigr)
   \wedge
-  \neg\ClosedResidue_d(R_{\perp}(g)).
+  \neg\ClosedResidue^{\mathrm{face}}_d(R^{\mathrm{face}}_{\perp}(s(d))).
 \]
+Here \(s(d)=g\) and \(t(d)=m\) are the source and target carried by the
+typed downgrade symbol \(d:g\Downarrow m\).
 \end{definition}
 
 \begin{proposition}[Robust downgrade block]
-If \(\Contr_{\mathrm{GM}}(d)\) holds for a proposed downgrade symbol
+If \(\Contr_{\mathrm{dow}}(d)\) holds for a proposed downgrade symbol
 \(d:g\Downarrow m\), then
 \[
   d\notin\Dow_{\mathrm{GM}}(g,m).
@@ -587,9 +945,9 @@ If every proposed downgrade symbol from \(g\) to \(m\) is contradictory, then
 \begin{proof}
 Membership in \(\Dow_{\mathrm{GM}}(g,m)\) requires the residue predicate
 \[
-  \ClosedResidue_d(R_{\perp}(g)).
+  \ClosedResidue^{\mathrm{face}}_d(R^{\mathrm{face}}_{\perp}(g)).
 \]
-The predicate \(\Contr_{\mathrm{GM}}(d)\) contains its negation.  The two
+The predicate \(\Contr_{\mathrm{dow}}(d)\) contains its negation.  The two
 conditions cannot hold simultaneously, hence \(d\) is not a Grand Meson
 downgrade.  If no proposed symbol satisfies the membership condition, the
 class is empty.
@@ -606,13 +964,14 @@ discipline, this pattern is blocked by emptiness of
 this paper.
 \end{remark}
 
-\section{QCD Completion as Channel Indexing}
+\section{QCD Channel-Index Lift}
 
-The Grand Meson completes the QCD mesonic flavor sector only in the
-following strict sense: it adds a recoverable generation-axis indexing layer
-to the standard color-singlet quark--antiquark bilinear.  It does not alter
-QCD color dynamics, does not replace confinement, and does not claim a new
-bound state by notation alone.  Its completion operation is
+The Grand Meson does not complete QCD dynamics.  It performs a conservative
+channel-index lift of the six-flavor mesonic operator basis: it adds a
+recoverable generation-axis indexing layer to the standard color-singlet
+quark--antiquark bilinear.  It does not alter QCD color dynamics, does not
+replace confinement, and does not claim a new bound state by notation
+alone.  Its channel-index lift is
 \[
   O_{q\bar r}\longmapsto(i,j,O_{q\bar r}),
   \qquad q\in A_i,\ r\in A_j,
@@ -626,52 +985,137 @@ flavor axes be
 \]
 
 \begin{definition}[Grand Meson channel completion]
-The physical Grand Meson completion is the \(36\)-channel object
+The typed channel-label layer is
 \[
-  \mathsf{GM}_{36}
+  \mathsf{GM}_{36}^{\mathrm{ch}}
   :=
   \left\{
     (i,j,P_{q\bar r})
     \ \middle|\
     q\in A_i,\ r\in A_j,\
-    P_{q\bar r}\in\mathsf{Pol}^{\mathrm{res}}_{q\bar r},\
-    \Cl(P_{q\bar r})=\Cl_{\mathrm{GM}}
+    P_{q\bar r}\in\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}
   \right\}.
 \]
-Equivalently, a completed Grand Meson is a map
+The inspectable \(36\)-channel body is the dependent product
 \[
-  G:F_6\times\overline{F_6}\longrightarrow
-  \bigsqcup_{q,r\in F_6}\mathsf{Pol}^{\mathrm{res}}_{q\bar r},
-  \qquad
-  G(q,\bar r)=P_{q\bar r}.
+  \mathsf{PreBody}_{36}
+  :=
+  \prod_{q,r\in F_6}\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}.
 \]
-The six-face skeleton records the available flavor faces; the
-\(F_6\times\overline{F_6}\) completion is the mesonic channel body.
+An element \(G\in\mathsf{PreBody}_{36}\) has a value
+\[
+  G(q,\bar r)\in\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}
+\]
+in the correct oriented channel type.  The closed \(36\)-channel body is
+\[
+  \mathsf{Body}_{36}^{\mathrm{cl}}
+  :=
+  \{\,G\in\mathsf{PreBody}_{36}\mid
+  \Inact(G(q,\bar r))\ \text{or}\
+  \Cl(G(q,\bar r))=\Cl_{\mathrm{GM}}
+  \text{ for all }q,r\in F_6\,\}.
+\]
+When the closed body is intended, write
+\[
+  \mathsf{Body}_{36}:=\mathsf{Body}_{36}^{\mathrm{cl}},
+  \qquad
+  \mathsf{GM}_{36}:=\mathsf{Body}_{36}^{\mathrm{cl}}.
+\]
+The six-face skeleton records incident channel families; the
+\(F_6\times\overline{F_6}\) dependent product is the mesonic channel body.
+Its channelwise active support is
+\[
+  \supp_{\mathrm{ch}}(G)
+  :=
+  \{\,(q,\bar r)\mid \neg\Inact(G(q,\bar r))\,\},
+\]
+and its body-derived face support is the projection
+\[
+  \supp_{\mathrm{face}}(G)
+  :=
+  \{\,q\in F_6\mid
+  (q,\bar r)\in\supp_{\mathrm{ch}}(G)
+  \text{ or }(s,\bar q)\in\supp_{\mathrm{ch}}(G)
+  \text{ for some }r,s\in F_6\,\}.
+\]
+\end{definition}
+
+\begin{definition}[Skeleton of a body]
+Define the skeleton map
+\[
+  \skel:\mathsf{PreBody}_{36}\longrightarrow\mathsf{Grand}^{\mathrm{raw}}
+\]
+by
+\[
+  \skel(G)(q)
+  :=
+  \left(
+    (G(q,\bar r))_{r\in F_6},\
+    (G(s,\bar q))_{s\in F_6}
+  \right)
+  \in\mathsf{Face}^{\mathrm{res}}_q.
+\]
+A pair \((g,G)\) is skeleton--body compatible when
+\[
+  g=\skel(G).
+\]
+The map \(\skel\) is injective, since each body value \(G(q,\bar r)\)
+appears in the outgoing family of the \(q\)-face.  Thus a face is never
+identified with a single \(q\bar r\) package; it is the incident family
+extracted from the body.
+\end{definition}
+
+\begin{definition}[Glued Grand Meson skeleton]
+The inspectable body-compatible skeleton is
+\[
+  \mathsf{PreGrand}_{\mathrm{comp}}
+  :=
+  \operatorname{Im}
+  \bigl(\skel:\mathsf{PreBody}_{36}\to\mathsf{Grand}^{\mathrm{raw}}\bigr).
+\]
+The closed body-compatible Grand Meson skeleton is
+\[
+  \mathsf{Grand}_{\mathrm{comp}}
+  :=
+  \operatorname{Im}
+  \bigl(\skel:\mathsf{Body}_{36}^{\mathrm{cl}}
+  \to\mathsf{Grand}^{\mathrm{raw}}\bigr)
+  \subseteq
+  \mathsf{Grand}^{\mathrm{raw}}.
+\]
+An element \(g\in\mathsf{Grand}^{\mathrm{raw}}\) is glued when there exists
+some \(G\in\mathsf{PreBody}_{36}\) such that \(g=\skel(G)\).  It is a
+closed Grand Meson skeleton when such a witness may be chosen in
+\(\mathsf{Body}_{36}^{\mathrm{cl}}\).  Equivalently, every incident
+appearance of the same oriented package \(P_{q\bar r}\) agrees across the
+two faces that mention it, and closed Grand Mesons additionally have no
+unclosed active component.  From this point onward, unqualified
+\(\mathsf{Grand}\) means the closed glued object
+\(\mathsf{Grand}_{\mathrm{comp}}\).
 \end{definition}
 
 \begin{definition}[UD burial on the channel body]
 Let
 \[
-  \mathsf{Map}_{36}
+  \mathsf{PreGM}_{36,\qu\qd}^{0,\mathrm{body}}
   :=
-  \{\,G:F_6\times\overline{F_6}\to
-  \bigsqcup_{q,r\in F_6}\mathsf{Pol}^{\mathrm{res}}_{q\bar r}
-  \mid
-  (i,j,G(q,\bar r))\in\mathsf{GM}_{36}
-  \text{ whenever }q\in A_i,\ r\in A_j\,\}.
-\]
-Let
-\[
-  \mathsf{GM}_{36,\qu\qd}^{0}
-  :=
-  \{\,G\in\mathsf{Map}_{36}\mid
+  \{\,G\in\mathsf{PreBody}_{36}\mid
   G(q,\bar r)=\mathbf 0_{q\bar r}[\mathrm{buried}]
   \ \text{for every }(q,\bar r)\notin
   A_Y\times\overline{A_Y}\,\}.
 \]
+Set
+\[
+  \mathsf{GM}_{36,\qu\qd}^{0,\mathrm{body}}
+  :=
+  \mathsf{PreGM}_{36,\qu\qd}^{0,\mathrm{body}}
+  \cap
+  \mathsf{Body}_{36}^{\mathrm{cl}}.
+\]
 Define the channel-body burial normalization
 \[
-  \mathcal B_{\qu\qd}:\mathsf{Map}_{36}\to\mathsf{GM}_{36,\qu\qd}^{0}
+  \mathcal B_{\qu\qd}:\mathsf{PreBody}_{36}\to
+  \mathsf{PreGM}_{36,\qu\qd}^{0,\mathrm{body}}
 \]
 by
 \[
@@ -685,28 +1129,217 @@ by
 \]
 Thus every cross-generation or non-UD body channel is retained as a closed
 inactive residual package, not deleted and not forgotten.
+The body projection is
+\[
+  p^{\mathrm{body}}_{\qu\qd}(G)
+  :=
+  G|_{A_Y\times\overline{A_Y}}
+  \in\mathsf{PreBody}_{Y}.
+\]
+\end{definition}
+
+\begin{definition}[Body zero extension and \(F_6\)-completion]
+For \(M\in\mathsf{Body}_{Y}^{\mathrm{cl}}\), define the body zero extension
+\[
+  z^{\mathrm{body}}(M)\in\mathsf{Body}_{36}^{\mathrm{cl}}
+\]
+by
+\[
+  z^{\mathrm{body}}(M)(q,\bar r)
+  =
+  \begin{cases}
+    M(q,\bar r), & (q,\bar r)\in A_Y\times\overline{A_Y},\\
+    \mathcal C_{\mathrm{GM}}(\bot_{q\bar r}),
+      & (q,\bar r)\notin A_Y\times\overline{A_Y}.
+  \end{cases}
+\]
+For \(m\in\mathsf{Gen}\), define the announced six-flavor completion by
+\[
+  z^{\mathrm{comp}}(m)
+  :=
+  \mathrm{Completion}_{F_6}(m)
+  :=
+  \skel\!\left(z^{\mathrm{body}}(\body_Y(m))\right)
+  \in\mathsf{Grand}_{\mathrm{comp}}.
+\]
+Equivalently,
+\[
+  z^{\mathrm{comp}}(m)
+  =
+  \mathrm{Completion}_{F_6}(m)
+  =
+  \mathcal C_{\mathrm{GM}}\bigl(L_{\bot}(m)\bigr),
+\]
+where the last expression means: preserve the UD face data and apply
+\(\mathcal C_{\mathrm{GM}}\) to every missing non-UD incident channel.
+\end{definition}
+
+\begin{proposition}[Completion identities]
+The local completion symbols introduced above are connected by the body
+witness
+\[
+  \boxed{
+  z^{\mathrm{comp}}(m)=\skel\!\left(z^{\mathrm{body}}(\body_Y(m))\right)
+  \in\mathsf{Grand}_{\mathrm{comp}}
+  }
+\]
+and the two identities
+\[
+  \boxed{
+  z^{\mathrm{comp}}(m)=\mathcal C_{\mathrm{GM}}\bigl(L_{\bot}(m)\bigr)
+  }
+\]
+for every glued General Meson
+\(m\in\mathsf{Gen}=\mathsf{Gen}_{\mathrm{comp}}\), and
+\[
+  \boxed{
+  \mathsf{Grand}_{\mathrm{comp}}
+  =
+  \operatorname{Im}
+  \bigl(
+    \skel:\mathsf{Body}_{36}^{\mathrm{cl}}\to\mathsf{Grand}^{\mathrm{raw}}
+  \bigr).
+  }
+\]
+The first identity says that zero extension is the missing-channel lift
+followed by buried completion.  The second says that a Grand Meson skeleton
+is closed and glued exactly when it comes from a closed \(36\)-channel body.
+\end{proposition}
+
+\begin{proof}
+Since \(m\) is glued, \(M:=\body_Y(m)\) exists and satisfies
+\(m=\skel_Y(M)\).  The body zero extension \(z^{\mathrm{body}}(M)\)
+preserves the UD body \(M\) and sends every non-UD body channel to its buried
+inactive package.  Applying \(\skel\) gives exactly the face-level zero
+completion \(z^{\mathrm{comp}}(m)\).  Hence \(z^{\mathrm{comp}}(m)\) has the body witness
+\(z^{\mathrm{body}}(\body_Y(m))\) and lies in
+\(\operatorname{Im}(\skel|_{\mathsf{Body}_{36}^{\mathrm{cl}}})
+=\mathsf{Grand}_{\mathrm{comp}}\).
+The componentwise definition of \(\mathcal C_{\mathrm{GM}}\) sends each
+missing non-UD channel of \(L_{\bot}(m)\) to the same buried inactive
+package and leaves the UD data represented by \(m\) unchanged; this is the
+same \(z^{\mathrm{comp}}(m)\).  The final identity is the definition of
+\(\mathsf{Grand}_{\mathrm{comp}}\).
+\end{proof}
+
+\begin{definition}[Glued UD projection]
+Define the glued projection
+\[
+  p_{\qu\qd}:\mathsf{Grand}_{\mathrm{comp}}\to\mathsf{Gen}
+\]
+by
+\[
+  p_{\qu\qd}(\skel(G))
+  :=
+  \skel_Y\!\left(p^{\mathrm{body}}_{\qu\qd}(G)\right).
+\]
+This is the restriction of the raw projection to glued skeletons, with the
+codomain restricted to glued General Mesons.
+\end{definition}
+
+\begin{definition}[Closed UD burial subobject]
+The closed UD-burial subobject is
+\[
+  \mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}
+  :=
+  z^{\mathrm{comp}}(\mathsf{Gen})
+  \subseteq
+  \mathsf{Grand}_{\mathrm{comp}}.
+\]
+\end{definition}
+
+\begin{proposition}[Closed General Meson recovery]
+Restriction to the UD face gives an isomorphism
+\[
+  \mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}\cong\mathsf{Gen}.
+\]
+More explicitly,
+\[
+  p_{\qu\qd}|_{\mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}}
+  :
+  \mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}\to\mathsf{Gen}
+\]
+has inverse \(z^{\mathrm{comp}}:\mathsf{Gen}\to
+\mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}\).
+\end{proposition}
+
+\begin{proof}
+By definition, every element of
+\(\mathsf{Grand}_{\qu\qd}^{0,\mathrm{comp}}\) has the form \(z^{\mathrm{comp}}(m)\) for a
+unique \(m\in\mathsf{Gen}\).  Since \(m\) has a closed UD body witness,
+\(z^{\mathrm{comp}}(m)=\skel(z^{\mathrm{body}}(\body_Y(m)))\) has a closed
+\(36\)-channel body witness and therefore belongs to
+\(\mathsf{Grand}_{\mathrm{comp}}\).  The glued projection returns the UD
+body witness, hence \(p_{\qu\qd}(z^{\mathrm{comp}}(m))=m\).
+\end{proof}
+
+\begin{proposition}[Glued backward recovery]
+For every \(m\in\mathsf{Gen}\),
+\[
+  p_{\qu\qd}\bigl(\mathrm{Completion}_{F_6}(m)\bigr)=m.
+\]
+Equivalently,
+\[
+  p_{\qu\qd}\circ\mathrm{Completion}_{F_6}
+  =
+  \mathrm{id}_{\mathsf{Gen}}.
+\]
+\end{proposition}
+
+\begin{proof}
+Let \(M=\body_Y(m)\).  By definition,
+\[
+  \mathrm{Completion}_{F_6}(m)=\skel(z^{\mathrm{body}}(M)).
+\]
+Applying \(p_{\qu\qd}\) restricts the completed body back to
+\(A_Y\times\overline{A_Y}\), which is exactly \(M\).  Applying
+\(\skel_Y\) then returns \(m\).
+\end{proof}
+
+\begin{definition}[Body downgrade residue and closure]
+For \(G\in\mathsf{PreBody}_{36}\), define
+\[
+  R^{\mathrm{body}}_{\perp}(G)
+  :=
+  G|_{(F_6\times\overline{F_6})\setminus
+  (A_Y\times\overline{A_Y})}
+\]
+and
+\[
+  S^{\mathrm{body}}_{\perp}(G)
+  :=
+  \{\,(q,\bar r)\notin A_Y\times\overline{A_Y}\mid
+  G(q,\bar r)\ne\mathbf 0_{q\bar r}[\mathrm{buried}]\,\}.
+\]
+For a body downgrade or transition witness \(U\), the predicate
+\[
+  \ClosedResidue^{\mathrm{body}}_{U}
+  \bigl(R^{\mathrm{body}}_{\perp}(G)\bigr)
+\]
+means that \(U\) carries a witness
+\[
+  \chi_U:S^{\mathrm{body}}_{\perp}(G)\longrightarrow
+  \RCl_{\mathrm{body}}(U)
+\]
+and that \(\mathcal B_{\qu\qd}(G)\) sends every such channel to
+\(\mathbf 0_{q\bar r}[\mathrm{buried}]\).
 \end{definition}
 
 \begin{proposition}[Body-level General Meson recovery]
-Let
-\[
-  \mathsf{Gen}^{\mathrm{body}}_{\qu\qd}
-  :=
-  \prod_{q,r\in A_Y}\mathsf{Pol}^{\mathrm{res}}_{q\bar r}
-\]
-be the oriented UD mesonic body.  Restriction to
+Restriction to
 \(A_Y\times\overline{A_Y}\) gives
 \[
-  \mathsf{GM}_{36,\qu\qd}^{0}
+  \mathsf{GM}_{36,\qu\qd}^{0,\mathrm{body}}
   \cong
-  \mathsf{Gen}^{\mathrm{body}}_{\qu\qd}.
+  \mathsf{Body}_{Y}^{\mathrm{cl}}.
 \]
 \end{proposition}
 
 \begin{proof}
 Every channel outside \(A_Y\times\overline{A_Y}\) is fixed to the closed
 inactive package \(\mathbf 0_{q\bar r}[\mathrm{buried}]\), so an element of
-\(\mathsf{GM}_{36,\qu\qd}^{0}\) is determined exactly by its four oriented
+\(\mathsf{GM}_{36,\qu\qd}^{0,\mathrm{body}}\) is determined exactly by its
+four oriented
 UD channels:
 \[
   \qu\bar{\qu},\quad
@@ -716,6 +1349,25 @@ UD channels:
 \]
 Conversely, any package assignment on these four channels extends uniquely
 by buried inactive packages on the remaining \(32\) channels.
+\end{proof}
+
+\begin{proposition}[Skeleton--body burial compatibility]
+For every \(G\in\mathsf{PreBody}_{36}\),
+\[
+  \skel(\mathcal B_{\qu\qd}(G))
+  =
+  \beta_{\qu\qd}(\skel(G)).
+\]
+Thus face-level burial and body-level burial are the same normalization
+seen from two typed layers.
+\end{proposition}
+
+\begin{proof}
+For \(q\in A_Y\), both sides keep the incident UD family.  For
+\(q\notin A_Y\), every incident body channel of
+\(\mathcal B_{\qu\qd}(G)\) is a buried inactive package, hence the
+skeleton is \(\mathbf 0_q[\mathrm{buried}]\).  This is exactly the
+definition of \(\beta_{\qu\qd}\) applied to \(\skel(G)\).
 \end{proof}
 
 \begin{definition}[Generation as internal direction]
@@ -741,20 +1393,25 @@ Then
 \]
 \end{definition}
 
-\begin{proposition}[Three generations are Grand Meson directions]
-The six-flavor Grand Meson decomposes as
+\begin{proposition}[Generation-index decomposition of the Grand Meson skeleton]
+The raw six-flavor face layer decomposes as
 \[
-  \mathsf{Grand}
+  \mathsf{Grand}^{\mathrm{raw}}
   =
-  (\mathsf{Pol}^{\mathrm{res}})^{F_6}
+  \prod_{q\in F_6}\mathsf{Face}^{\mathrm{res}}_q
   \cong
-  (\mathsf{Pol}^{\mathrm{res}})^{G_3\times H_2}
+  \prod_{(i,\epsilon)\in G_3\times H_2}
+  \mathsf{Face}^{\mathrm{res}}_{\Phi(i,\epsilon)}
   \cong
-  \left((\mathsf{Pol}^{\mathrm{res}})^{H_2}\right)^{G_3}.
+  \prod_{i\in G_3}\prod_{\epsilon\in H_2}
+  \mathsf{Face}^{\mathrm{res}}_{\Phi(i,\epsilon)}.
 \]
-Thus the three observed quark generations are not external decorations of
-the six-face skeleton.  They are the three internal directions of the Grand
-Meson, each carrying one up-type and one down-type face.
+The glued Grand Meson \(\mathsf{Grand}_{\mathrm{comp}}\) inherits this
+three-axis indexing through its inclusion into
+\(\mathsf{Grand}^{\mathrm{raw}}\).  Thus the three observed quark
+generations are not derived from the General Meson alone; they enter as
+the fixed six-flavor input and become internal directions of the completed
+skeleton.
 \end{proposition}
 
 \begin{definition}[Top-axis closure]
@@ -765,46 +1422,782 @@ The third direction
 is not an ordinary top-meson axis.  It is a weak-virtual channel axis.
 For a channel \(q\bar r\), define
 \[
-  \Top(q\bar r)
+  \TopCh(q\bar r)
   \quad\Longleftrightarrow\quad
   (q=\qt)\ \text{or}\ (r=\qt).
 \]
-An ordinary mesonic readout is defined only when \(\Top(q\bar r)\) is
-false.  If \(\Top(q\bar r)\) is true, the channel closes only through a
-weak-virtual channel closure
+An ordinary mesonic readout is defined only when \(\TopCh(q\bar r)\) is
+false.  If \(\TopCh(q\bar r)\) is true, the channel closes only through a
+weak-virtual channel closure relative to a channel residual assignment
+\(\mathcal R_{\mathrm{ch}}\in\mathsf{ChResType}\):
 \[
-  \mathsf{WCl}(q\bar r)\in\RCl(q\bar r).
+  \mathsf{WCl}(q\bar r)\subseteq\mathcal R_{\mathrm{ch}}(q\bar r).
 \]
 The closure object is the weak charged-current exit available before an
-ordinary top-bearing mesonic readout can be formed:
+ordinary top-bearing mesonic readout can be formed.  Let
 \[
-  \mathsf{WCl}(\qt\bar r)
+  d_1=\qd,\qquad d_2=\qs,\qquad d_3=\qb .
+\]
+\[
+  \mathsf{WCl}_{L}(\qt\bar r)
   :=
   \{\,\qt\to d_j W^+\ \mathrm{with}\ V_{3j}\mid j=1,2,3\,\},
 \]
 and, for an anti-top-bearing channel,
 \[
-  \mathsf{WCl}(q\bar{\qt})
+  \mathsf{WCl}_{R}(q\bar{\qt})
   :=
   \{\,\bar{\qt}\to\bar d_j W^-\ \mathrm{with}\ \overline{V_{3j}}
     \mid j=1,2,3\,\}.
 \]
+For a general channel, \(\mathsf{WCl}(q\bar r)\) is the union of all
+available left and right top exits; for \(\qt\bar{\qt}\), both sides are
+required.  If neither side contains a top label, \(\mathsf{WCl}(q\bar r)\)
+is empty.
 Thus the top axis is present in the six-flavor completion, but ordinary
 mesonic readability is blocked unless the weak-virtual closure is supplied.
 \end{definition}
 
 \begin{proposition}[Unclosed top readout is GM-contradictory]
-Let \((i,j,O_{q\bar r})\) be a Grand Meson lifted channel.  If
-\(\Top(q\bar r)\) holds and \(\mathsf{WCl}(q\bar r)\notin\RCl(q\bar r)\), then the
+Let \(P_{q\bar r}\in\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}\) be a package
+whose ordinary readout claims an ordinary top-bearing meson, and let
+\(\mathcal R_{\mathrm{ch}}\in\mathsf{ChResType}\).  If
+\(\TopCh(q\bar r)\) holds and
+\(\mathsf{WCl}(q\bar r)\nsubseteq\mathcal R_{\mathrm{ch}}(q\bar r)\), then the
 ordinary-meson readout symbol is contradictory.  Equivalently,
 \[
-  \Top(q\bar r)
+  \TopCh(q\bar r)
   \ \wedge\
-  \mathsf{WCl}(q\bar r)\notin\RCl(q\bar r)
+  \mathsf{WCl}(q\bar r)\nsubseteq\mathcal R_{\mathrm{ch}}(q\bar r)
   \quad\Longrightarrow\quad
-  \Contr_{\mathrm{GM}}(i,j,O_{q\bar r}).
+  \Contr_{\mathrm{top}}(P_{q\bar r};\mathcal R_{\mathrm{ch}}).
 \]
 \end{proposition}
+
+\begin{definition}[Grand Meson charge-closure vector]
+In the Grand Meson calculus, ``charge'' means a charge-closure vector, not
+electric charge alone.  Fix a finite sector-label space
+\(\mathbb R^{\Sigma_{\mathrm{GM}}}\) containing the spin-parity, threshold,
+anomaly, and readout labels used in the paper, and set
+\[
+  \mathcal K_{\mathrm{GM}}
+  :=
+  \mathbb R
+  \oplus\mathbb R^{F_6}
+  \oplus\mathbb R^{3\times3}
+  \oplus\mathbb R
+  \oplus\mathbb R^{\Sigma_{\mathrm{GM}}}.
+\]
+Equip this finite-dimensional real vector space with a fixed weighted
+inner product \(\langle-,-\rangle_W\).  The components below are embedded
+into the displayed direct summands.  For any pair
+\[
+  \Xi=(\boldsymbol\sigma^\Xi,\mathcal R^\Xi_{\mathrm{ch}})
+\]
+with
+\[
+  \boldsymbol\sigma^\Xi=(\sigma^\Xi_{q\bar r})_{q,r\in F_6},
+  \qquad
+  \mathcal R^\Xi_{\mathrm{ch}}\in\mathsf{ChResType},
+\]
+define
+\[
+  \tau_{\mathrm{top}}^{\Xi}(q,\bar r)
+  :=
+  \begin{cases}
+    1,
+      & \TopCh(q\bar r)
+        \ \text{and}\
+        \mathsf{WCl}(q\bar r)\nsubseteq
+        \mathcal R^\Xi_{\mathrm{ch}}(q\bar r),\\
+    0, & \text{otherwise}.
+  \end{cases}
+\]
+For \(q\in A_i\), \(r\in A_j\), and spin-parity sector \(\sigma\), define
+\[
+  \kappa_{\mathrm{GM}}^{\Xi}(q,\bar r;\sigma)
+  :=
+  \bigl(
+    Q_q-Q_r,\
+    e_q-e_r,\
+    \mathbf a_{ij},\
+    \tau_{\mathrm{top}}^{\Xi}(q,\bar r),\
+    \chi_\sigma(q,\bar r)
+  \bigr)
+  \in\mathcal K_{\mathrm{GM}} .
+\]
+For an oriented channel \(c=(q,\bar r)\), write
+\[
+  \kappa_{\mathrm{GM}}^{\Xi}(c)
+  :=
+  \kappa_{\mathrm{GM}}^{\Xi}(q,\bar r;\sigma^\Xi_{q\bar r}).
+\]
+The coordinate \(\chi_\sigma(q,\bar r)\) records the spin-parity,
+threshold, anomaly, and readout sector used by the package.
+For each channel and sector let
+\[
+  \mathcal Z_{q\bar r,\sigma}\subset\mathcal K_{\mathrm{GM}}
+\]
+be a nonempty closed affine subspace, called the closed charge-balanced
+readout locus, and let
+\[
+  \Pi_{q\bar r,\sigma}:\mathcal K_{\mathrm{GM}}\to
+  \mathcal Z_{q\bar r,\sigma}
+\]
+be the unique \(W\)-orthogonal projection onto it.
+\end{definition}
+
+\begin{definition}[Charge-closure strain and stability]
+The following structure is an added diagnostic layer on top of the
+channel-index lift.  It is not derived from QCD dynamics or from the
+existence of \(\mathsf{PreBody}_{36}\).  It supplies a closure-distance
+semantics for robustness tests inside this paper.
+
+Let \(G\in\mathsf{PreBody}_{36}\) be an inspectable Grand Meson body.  A
+Grand Meson charge
+assignment is a variable family
+\[
+  \mathbf K=(K_{q\bar r})_{q,r\in F_6},
+  \qquad
+  K_{q\bar r}\in\mathcal K_{\mathrm{GM}},
+ \]
+and the diagnostic configuration supplies the channelwise sector and
+channel residual-closure assignments:
+\[
+  \Xi:=(\boldsymbol\sigma^\Xi,\mathcal R^\Xi_{\mathrm{ch}}),
+  \qquad
+  \boldsymbol\sigma^\Xi=(\sigma^\Xi_{q\bar r})_{q,r\in F_6},
+\]
+where \(\mathcal R^\Xi_{\mathrm{ch}}\) is a fixed channel residual-closure
+assignment with \(\mathcal R^\Xi_{\mathrm{ch}}\in\mathsf{ChResType}\).
+The distinguished standard assignment for \(\Xi\) is
+\[
+  K^{\mathrm{std},\Xi}_{q\bar r}
+  :=
+  \kappa_{\mathrm{GM}}^{\Xi}(q,\bar r;\sigma^\Xi_{q\bar r}).
+\]
+All strain, projection, and stability expressions in this section carry
+\(\Xi\) explicitly.
+Define channel activity by
+\[
+  a_G(q,\bar r)
+  :=
+  \begin{cases}
+    0, & G(q,\bar r)=\mathbf 0_{q\bar r}[\rho]
+      \ \text{for some }\rho\in\mathsf{Prov}_0,\\
+    1, & \text{otherwise}.
+  \end{cases}
+\]
+Define
+\[
+  \mathrm{TopOk}_{\Xi}(q\bar r)
+  \quad\Longleftrightarrow\quad
+  \neg\TopCh(q\bar r)
+  \ \text{or}\
+  \mathsf{WCl}(q\bar r)\subseteq\mathcal R^\Xi_{\mathrm{ch}}(q\bar r).
+\]
+The closure barrier is
+\[
+  \Theta_{G,\Xi}(q,\bar r)
+  :=
+  \begin{cases}
+    0, & a_G(q,\bar r)=0,\\
+    0,
+      & a_G(q,\bar r)=1
+        \ \text{and}\
+        \Cl(G(q,\bar r))=\Cl_{\mathrm{GM}}
+        \ \text{and}\
+        \mathrm{TopOk}_{\Xi}(q\bar r),\\
+    +\infty, & \text{otherwise}.
+  \end{cases}
+\]
+The charge-closure imbalance of \(q\bar r\), valued in the extended
+nonnegative reals, is
+\[
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K)
+  :=
+  a_G(q,\bar r)\,
+  \dist_W^2(K_{q\bar r},\mathcal Z_{q\bar r,\sigma^\Xi_{q\bar r}})
+  +
+  \Theta_{G,\Xi}(q,\bar r),
+\]
+where
+\[
+  \dist_W^2(K_{q\bar r},\mathcal Z_{q\bar r,\sigma^\Xi_{q\bar r}})
+  :=
+  \left\|
+    K_{q\bar r}-\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}K_{q\bar r}
+  \right\|_W^2 .
+\]
+Write
+\(\varepsilon_{G,\Xi}(q,\bar r;\mathbf K):=
+\mathcal I_{G,\Xi}(q,\bar r;\mathbf K)\).
+For an oriented channel \(c=(q,\bar r)\), write
+\[
+  \mathcal I_{G,\Xi}(c;\mathbf K)
+  :=
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K).
+\]
+The total Grand Meson strain and stability are
+\[
+  \mathcal E_{G,\Xi}(\mathbf K)\in[0,+\infty]
+  :=
+  \sum_{q,r\in F_6}\mathcal I_{G,\Xi}(q,\bar r;\mathbf K),
+  \qquad
+  \mathsf{St}_{G,\Xi}(\mathbf K)
+  :=
+  \frac{1}{1+\mathcal E_{G,\Xi}(\mathbf K)}.
+\]
+Thus \(\mathsf{St}_{G,\Xi}(\mathbf K)=0\) when an unclosed channel carries the
+\(+\infty\) barrier.  The imbalance is a charge-closure imbalance: electric
+charge, flavor, axis-pair data, top obstruction, and the readout sector all
+participate.
+\end{definition}
+
+\begin{definition}[Transition margin]
+For an oriented channel \(q\bar r\), define the finite candidate target set
+\[
+  \mathsf{Cand}_{G,\Xi}(q\bar r;\mathbf K)
+  :=
+  \{\,s\bar t\mid
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K)<+\infty,\
+  \mathcal I_{G,\Xi}(s,\bar t;\mathbf K)<+\infty\,\}.
+\]
+For \(s\bar t\in\mathsf{Cand}_{G,\Xi}(q\bar r;\mathbf K)\), define the Grand
+Meson transition margin
+\[
+  M_{G,\Xi}(q\bar r\to s\bar t;\mathbf K)
+  :=
+  \mathcal I_{G,\Xi}(s,\bar t;\mathbf K)
+  -
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K).
+\]
+Among closed candidate targets, the internally preferred directions in this
+diagnostic order are the minimizers
+\[
+  \operatorname*{arg\,min}_{s\bar t\in\mathsf{Cand}_{G,\Xi}(q\bar r;\mathbf K)}
+  M_{G,\Xi}(q\bar r\to s\bar t;\mathbf K).
+\]
+This is an internal preference order, not a decay-rate prediction.
+\end{definition}
+
+\begin{definition}[Projected discontinuity certificate]
+On the product space
+\[
+  \prod_{q,r\in F_6}\mathcal K_{\mathrm{GM}},
+\]
+use the product weighted inner product
+\[
+  \langle H,H'\rangle_{\Pi W}
+  :=
+  \sum_{q,r\in F_6}
+  \langle H_{q\bar r},H'_{q\bar r}\rangle_W .
+\]
+Let \(\mathsf{Sm}_{G,\Xi}\) be the finite smooth projection
+stratum on which
+\(\mathcal E_{G,\Xi}(\mathbf K)<+\infty\) and every projection
+\(\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}\) appearing in an active channel is
+differentiable.
+The UD-visible strain is
+\[
+  \mathcal E_{Y,G,\Xi}(\mathbf K)
+  :=
+  \sum_{q,r\in A_Y}\mathcal I_{G,\Xi}(q,\bar r;\mathbf K),
+\]
+and the non-UD residual strain opened by the Grand Meson body is
+\[
+  \mathcal E_{\perp,G,\Xi}(\mathbf K)
+  :=
+  \mathcal E_{G,\Xi}(\mathbf K)-\mathcal E_{Y,G,\Xi}(\mathbf K)
+  =
+  \sum_{(q,\bar r)\notin A_Y\times\overline{A_Y}}
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K).
+\]
+Define the static discontinuity certificate
+\[
+  \mathfrak D_{G,\Xi}:\mathsf{Sm}_{G,\Xi}\to
+  [0,+\infty)\times
+  \prod_{q,r\in F_6}\mathcal K_{\mathrm{GM}},
+  \qquad
+  \mathfrak D_{G,\Xi}(\mathbf K)
+  :=
+  \left(
+    \mathcal E_{\perp,G,\Xi}(\mathbf K),\
+    \nabla\mathcal E_{\perp,G,\Xi}(\mathbf K)
+  \right).
+\]
+It measures not a dangerous object, but a projected network imbalance: the
+part of the charge-closure network that is invisible before the non-UD axes
+are opened.
+\end{definition}
+
+\begin{definition}[Fuse set and fuse normal form]
+Fix a readout threshold \(\epsilon_{\mathrm{fuse}}>0\).  After the non-UD
+axes are opened, define the fuse set
+\[
+  \Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)
+  :=
+  \{\,(q,\bar r)\mid
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K)=+\infty
+  \ \text{or}\
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K)\ge\epsilon_{\mathrm{fuse}}\,\}.
+\]
+The non-UD residual fuse set is
+\[
+  \Omega_{\perp}(G,\Xi,\mathbf K)
+  :=
+  \Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)
+  \cap
+  \bigl((F_6\times\overline{F_6})
+  \setminus(A_Y\times\overline{A_Y})\bigr).
+\]
+The associated residual fission network is the directed graph
+\[
+  E_{\perp}(G,\Xi,\mathbf K)
+  :=
+  \{\,(q,r)\in F_6\times F_6\mid
+  (q,\bar r)\in\Omega_{\perp}(G,\Xi,\mathbf K)\,\}.
+\]
+\[
+  \mathcal N_{\perp}(G,\Xi,\mathbf K)
+  :=
+  (F_6,E_{\perp}(G,\Xi,\mathbf K)).
+\]
+The fuse normal form is the body map
+\[
+  \mathsf{Fuse}_{G,\Xi,\mathbf K}\in\mathsf{Body}_{36}^{\mathrm{cl}}
+  \quad\text{defined by}\quad
+  \mathsf{Fuse}_{G,\Xi,\mathbf K}(q,\bar r)
+  :=
+  \begin{cases}
+    \mathbf 0_{q\bar r}[\mathrm{fuse}],
+      & (q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K),\\
+    G(q,\bar r), & \text{otherwise}.
+  \end{cases}
+\]
+This is not a destructive physical process.  It is the Grand Meson closure
+response that turns a detected charge-closure imbalance into a closed
+inactive residual package.
+The codomain is closed: every fuse edge is replaced by
+\(\mathbf 0[\mathrm{fuse}]\), while every non-fuse active edge has finite
+barrier and therefore satisfies the Grand closure suite.
+\end{definition}
+
+\begin{proposition}[Closedness of the fuse normal form]
+For every \(G\in\mathsf{PreBody}_{36}\), diagnostic configuration \(\Xi\),
+and \(\mathbf K\), the body map
+\(\mathsf{Fuse}_{G,\Xi,\mathbf K}\) lies in
+\(\mathsf{Body}_{36}^{\mathrm{cl}}\).
+\end{proposition}
+
+\begin{proof}
+If \((q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\), the output
+component is \(\mathbf 0_{q\bar r}[\mathrm{fuse}]\), hence a closed
+inactive residual package.  If
+\((q,\bar r)\notin\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\), then
+\(\mathcal I_{G,\Xi}(q,\bar r;\mathbf K)<+\infty\).  Since the only
+infinite contribution to \(\mathcal I_{G,\Xi}\) is the closure barrier,
+\(\Theta_{G,\Xi}(q,\bar r)=0\).  Therefore the component is either inactive,
+or it is active and satisfies \(\Cl=\Cl_{\mathrm{GM}}\) together with
+\(\mathrm{TopOk}_{\Xi}\).  Thus every output component is closed.
+\end{proof}
+
+\begin{definition}[Finite readout load]
+Let \(H\in\mathsf{PreBody}_{36}\) be any proposed post-opening body map
+that agrees with \(G\) outside
+\(\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\).  Define the residual
+readout load on an imbalanced edge by
+\[
+  \lambda_{G,\Xi,\mathbf K}^{H}(q,\bar r)
+  :=
+  \begin{cases}
+    0,
+      & H(q,\bar r)=\mathbf 0_{q\bar r}[\mathrm{fuse}],\\
+    +\infty,
+      & H(q,\bar r)\ne\mathbf 0_{q\bar r}[\mathrm{fuse}],
+  \end{cases}
+  \qquad
+  (q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K).
+\]
+The total residual readout load is
+\[
+  \mathsf{Load}_{G,\Xi,\mathbf K}(H)
+  :=
+  \sum_{(q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)}
+  \lambda_{G,\Xi,\mathbf K}^{H}(q,\bar r).
+\]
+A finite Grand Meson readout circuit is one whose residual readout load is
+finite.
+For a finite cutoff \(L>0\), define
+\[
+  \lambda_{G,\Xi,\mathbf K}^{H,L}(q,\bar r)
+  :=
+  \begin{cases}
+    0,
+      & H(q,\bar r)=\mathbf 0_{q\bar r}[\mathrm{fuse}],\\
+    L,
+      & H(q,\bar r)\ne\mathbf 0_{q\bar r}[\mathrm{fuse}],
+  \end{cases}
+\]
+and
+\[
+  \mathsf{Load}^{(L)}_{G,\Xi,\mathbf K}(H)
+  :=
+  \sum_{(q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)}
+  \lambda_{G,\Xi,\mathbf K}^{H,L}(q,\bar r).
+\]
+\end{definition}
+
+\begin{definition}[Body transition space]
+A body transition symbol is written \(U:G\to G'\), with
+\(G,G'\in\mathsf{PreBody}_{36}\).  Its changed body support is
+\[
+  \Delta_{\mathrm{body}}(U)
+  :=
+  \{\,(q,\bar r)\mid G(q,\bar r)\ne G'(q,\bar r)\,\}.
+\]
+After a fuse network has been opened, the support that must be closed is
+not only the changed support but also the visible fuse support:
+\[
+  \Sigma_{\mathrm{body}}(U;G,\Xi,\mathbf K)
+  :=
+  \Delta_{\mathrm{body}}(U)
+  \cup
+  \Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K).
+\]
+The body transition space is
+\[
+  \Mor^{\mathrm{body}}_{\mathrm{GM}}(G,\Xi,\mathbf K)
+  :=
+  \{\,U:G\to G'\mid
+  \Sigma_{\mathrm{body}}(U;G,\Xi,\mathbf K)
+  \subseteq\RCl_{\mathrm{body}}(U)\,\}.
+\]
+The body-transition contradiction predicate is
+\[
+  \Contr_{\mathrm{tr}}(U;G,\Xi,\mathbf K)
+  :=
+  \Sigma_{\mathrm{body}}(U;G,\Xi,\mathbf K)
+  \setminus\RCl_{\mathrm{body}}(U)
+  \ne\varnothing .
+\]
+\end{definition}
+
+\begin{theorem}[Deterministic charge-closure strain diagnostic]
+Fix an inspectable Grand Meson body \(G\), a diagnostic configuration
+\(\Xi\), and a Grand Meson charge
+assignment \(\mathbf K\in\mathsf{Sm}_{G,\Xi}\).  Then the following data
+are determined uniquely:
+\[
+  \mathsf{St}_{G,\Xi}(\mathbf K),\qquad
+  \mathfrak D_{G,\Xi}(\mathbf K),\qquad
+  M_{G,\Xi}(q\bar r\to s\bar t;\mathbf K),
+\]
+for every finite candidate \(s\bar t\in
+\mathsf{Cand}_{G,\Xi}(q\bar r;\mathbf K)\).  On every finite smooth projection
+stratum, for a variation
+\(h=(h_{q\bar r})_{q,r\in F_6}\),
+\[
+  D\mathcal E_{G,\Xi}(\mathbf K)[h]
+  =
+  2\sum_{q,r\in F_6}
+  a_G(q,\bar r)
+  \left\langle
+    K_{q\bar r}-\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}K_{q\bar r},\
+    h_{q\bar r}
+    -D\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}(K_{q\bar r})[h_{q\bar r}]
+  \right\rangle_W .
+\]
+Consequently
+\[
+  D\mathsf{St}_{G,\Xi}(\mathbf K)[h]
+  =
+  -\mathsf{St}_{G,\Xi}(\mathbf K)^2
+  D\mathcal E_{G,\Xi}(\mathbf K)[h].
+\]
+If the channel charges are functions of a common parameter
+\(\theta\), namely \(\mathbf K=\mathbf K(\theta)\), then
+\[
+  \frac{d}{d\theta}\mathcal E_{G,\Xi}(\mathbf K(\theta))
+  =
+  D\mathcal E_{G,\Xi}(\mathbf K(\theta))
+  \left[\frac{d\mathbf K}{d\theta}\right].
+\]
+Thus a change in one physical parameter propagates deterministically
+through exactly the channels whose charge-closure vectors depend on that
+parameter.  No extra prohibition rule is required: an unclosed top-bearing
+or otherwise unclosed active channel receives the \(+\infty\) barrier and
+therefore cannot inhabit a stable Grand Meson transition.
+
+Finally, the UD projection detects exactly the UD-visible part and no more:
+for any \(\mathbf K,\mathbf K'\) with
+\[
+  K_{q\bar r}=K'_{q\bar r}
+  \qquad(q,r\in A_Y),
+\]
+one has
+\[
+  \mathcal E_{Y,G,\Xi}(\mathbf K)=\mathcal E_{Y,G,\Xi}(\mathbf K'),
+  \qquad
+  D\mathcal E_{Y,G,\Xi}(\mathbf K)=D\mathcal E_{Y,G,\Xi}(\mathbf K')
+  \ \text{on }A_Y\times\overline{A_Y}.
+\]
+Any change in
+\[
+  \mathcal E_{G,\Xi}-\mathcal E_{Y,G,\Xi}
+  =
+  \mathcal E_{\perp,G,\Xi}
+\]
+is therefore statically invisible to the General Meson and becomes
+verifiable only after the non-UD axes are opened.  Along any differentiable
+path \(\gamma:[0,1]\to\mathsf{Sm}_{G,\Xi}\),
+\[
+  \int_{\gamma}D\mathcal E_{G,\Xi}
+  -
+  \int_{\gamma}D\mathcal E_{Y,G,\Xi}
+  =
+  \mathcal E_{\perp,G,\Xi}(\gamma(1))
+  -
+  \mathcal E_{\perp,G,\Xi}(\gamma(0)).
+\]
+Thus a projected differential or integral mismatch is exactly the non-UD
+residual certificate \(\mathfrak D_{G,\Xi}\).  Instability in this calculus is
+not assigned by a name; it is the nonzero, threshold-level, or infinite
+charge-closure imbalance carried by typed mesonic channels.
+\end{theorem}
+
+\begin{proof}
+The activity \(a_G\), the projection data
+\(\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}\), the balanced loci
+\(\mathcal Z_{q\bar r,\sigma^\Xi_{q\bar r}}\), and the barrier
+\(\Theta_{G,\Xi}\) are functions of the fixed data
+\((G,\Xi,\mathbf K)\).
+Hence every channel imbalance \(\mathcal I_{G,\Xi}(q,\bar r;\mathbf K)\), their
+sum \(\mathcal E_{G,\Xi}(\mathbf K)\), the UD-visible sum
+\(\mathcal E_{Y,G,\Xi}(\mathbf K)\), the residual sum
+\(\mathcal E_{\perp,G,\Xi}(\mathbf K)\), the certificate
+\(\mathfrak D_{G,\Xi}(\mathbf K)\), the stability
+\(\mathsf{St}_{G,\Xi}(\mathbf K)\), and every transition margin
+\(M_{G,\Xi}\) are uniquely determined.
+
+On a finite smooth projection stratum,
+\[
+  \mathcal I_{G,\Xi}(q,\bar r;\mathbf K)
+  =
+  a_G(q,\bar r)
+  \|K_{q\bar r}-\Pi_{q\bar r,\sigma^\Xi_{q\bar r}}K_{q\bar r}\|_W^2 .
+\]
+Differentiating this weighted square gives the displayed formula for
+\(D\mathcal E_{G,\Xi}\).  Since
+\(\mathsf{St}_{G,\Xi}=(1+\mathcal E_{G,\Xi})^{-1}\), the chain rule gives the displayed
+formula for \(D\mathsf{St}_{G,\Xi}\).  If a required closure is missing,
+\(\Theta_{G,\Xi}=+\infty\); then the channel is not a finite stable transition
+candidate inside the Grand Meson calculus.
+
+The UD-visible strain \(\mathcal E_{Y,G,\Xi}\) is a sum over
+\(A_Y\times\overline{A_Y}\), so it depends only on the UD restriction of
+\(\mathbf K\).  Therefore two assignments with the same UD restriction have
+the same \(\mathcal E_{Y,G,\Xi}\) and the same UD differential.  Subtracting
+\(\mathcal E_{Y,G,\Xi}\) from \(\mathcal E_{G,\Xi}\) leaves exactly the sum of all non-UD
+channel imbalances, which is \(\mathcal E_{\perp,G,\Xi}\).  Exactness of the
+differential of the scalar strain along \(\gamma\) gives the displayed
+integral mismatch.  Thus the opened Grand Meson axes do not add a rhetorical
+warning; they add a static certificate for the residual imbalance that the
+UD projection cannot see.
+\end{proof}
+
+\section{Finite Fuse Normalization}
+
+Finite fuse normalization is the finite-readout form of the Grand Meson
+closure discipline.
+Once a charge-closure fission network is made visible by opening the
+non-UD axes, the network cannot remain as active readout inside a finite
+Grand Meson circuit.  It automatically normalizes to closed fuse residual
+packages; if one insists on keeping it active, the readout load becomes
+non-finite.
+
+\begin{theorem}[Finite fuse normal form]
+Assume all channels have been safely opened, meaning that every
+\((q,\bar r)\in F_6\times\overline{F_6}\) is typed either by an active
+package in \(\mathsf{Pol}_{q\bar r}\) or by an inactive package
+\(\mathbf 0_{q\bar r}[\rho]\in\mathsf{Pol}^{\mathrm{res}}_{q\bar r}\).
+If
+\[
+  \Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\ne\varnothing,
+\]
+then the finite Grand Meson readout circuit has a unique normal form on the
+opened imbalanced network:
+\[
+  \mathsf{Load}_{G,\Xi,\mathbf K}(H)<+\infty
+  \quad\Longleftrightarrow\quad
+  H(q,\bar r)=\mathsf{Fuse}_{G,\Xi,\mathbf K}(q,\bar r)
+  \ \text{for all }(q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K).
+\]
+Thus the channel does not decide to cut itself; within the finite-load
+semantics defined here, any non-fuse value has infinite residual readout
+load.
+
+Equivalently, no Grand Meson body transition may ignore the opened
+imbalance.  Let \(U:G\to G'\) preserve the UD body projection and leave at
+least one
+imbalanced edge unclosed:
+\[
+  p^{\mathrm{body}}_{\qu\qd}(G')=p^{\mathrm{body}}_{\qu\qd}(G),
+  \qquad
+  \Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)
+  \setminus\RCl_{\mathrm{body}}(U)\ne\varnothing .
+\]
+Then
+\[
+  U\notin\Mor^{\mathrm{body}}_{\mathrm{GM}}(G,\Xi,\mathbf K),
+  \qquad
+  \Contr_{\mathrm{tr}}(U;G,\Xi,\mathbf K).
+\]
+Moreover, \(\mathsf{Fuse}_{G,\Xi,\mathbf K}\) deterministically closes every
+opened fuse edge:
+\[
+  (q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)
+  \quad\Longrightarrow\quad
+  \mathsf{Fuse}_{G,\Xi,\mathbf K}(q,\bar r)
+  =
+  \mathbf 0_{q\bar r}[\mathrm{fuse}].
+\]
+In a finite cutoff semantics where \(+\infty\) is replaced by \(L\), any
+body map \(H\) leaving \(k\) fuse edges unfused has
+\[
+  \mathsf{Load}^{(L)}_{G,\Xi,\mathbf K}(H)\ge kL .
+\]
+Hence the computational or cognitive burden of retaining the large-scale
+fission network as active readout cannot remain bounded as \(L\to\infty\).
+Once the opened charge-closure imbalance is visible, the finite readout
+circuit automatically collapses to the closed fuse residual form.
+\end{theorem}
+
+\begin{proof}
+Safe opening places every oriented channel in the typed body
+\(\mathsf{PrePol}^{\mathrm{res}}_{q\bar r}\), so every fuse edge in
+\(\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\) is a readable element of the Grand
+Meson body rather than a missing symbol.  By definition of the residual
+readout load, each fuse edge contributes \(0\) exactly when its post-opening
+value is \(\mathbf 0_{q\bar r}[\mathrm{fuse}]\), and contributes
+\(+\infty\) otherwise.  Therefore a proposed body map has finite load
+exactly when it agrees with \(\mathsf{Fuse}_{G,\Xi,\mathbf K}\) on every edge of
+\(\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\).  This proves uniqueness of the
+finite normal form.
+
+If a transition \(U\) preserves the UD body projection while leaving some
+\((q,\bar r)\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\) outside
+\(\RCl_{\mathrm{body}}(U)\),
+then the changed or retained residual support is not contained in the
+residual closure set required for membership in
+\(\Mor^{\mathrm{body}}_{\mathrm{GM}}(G,\Xi,\mathbf K)\).  By the definition of
+the opened body transition space,
+\(U\notin\Mor^{\mathrm{body}}_{\mathrm{GM}}(G,\Xi,\mathbf K)\), and by the
+definition of the contradiction predicate the same unclosed edge witnesses
+\(\Contr_{\mathrm{tr}}(U;G,\Xi,\mathbf K)\).
+
+The displayed implication for \(\mathsf{Fuse}_{G,\Xi,\mathbf K}\) is its
+definition.  For every edge in \(\Omega_{\mathrm{fuse}}\), the output is
+\(\mathbf 0_{q\bar r}[\mathrm{fuse}]\), which belongs to
+\(\mathsf{Pol}^{\mathrm{res}}_{q\bar r}\) and satisfies
+\(\Cl(\mathbf 0_{q\bar r}[\mathrm{fuse}])=\Cl_{\mathrm{GM}}\).  For every
+edge outside \(\Omega_{\mathrm{fuse}}\), the channel is left unchanged.
+Hence the operation closes every detected fuse edge, while an already
+fuse-tagged inactive input outside \(\Omega_{\mathrm{fuse}}\) is not used
+as evidence that the edge belongs to the fuse set.  Under a finite cutoff
+\(L\), each of the \(k\) unfused fuse edges
+contributes at least \(L\) to the load, giving the bound
+\(\mathsf{Load}^{(L)}_{G,\Xi,\mathbf K}(H)\ge kL\).  The load is therefore
+unbounded in the limit \(L\to\infty\).
+\end{proof}
+
+\begin{definition}[Grand Meson decay readout]
+For a finite final readout family
+\(\mathcal F=\{((q_y,\bar r_y),\eta_y)\}\), where each
+\((q_y,\bar r_y)\) is a typed oriented output channel and
+\(\eta_y\in\{\pm1\}\), write
+\[
+  \kappa_{\mathrm{GM}}^{\Xi}(\mathcal F)
+  :=
+  \sum_{((q_y,\bar r_y),\eta_y)\in\mathcal F}
+  \eta_y\,
+  \kappa_{\mathrm{GM}}^{\Xi}
+  (q_y,\bar r_y;\sigma^\Xi_{q_y\bar r_y}),
+  \qquad
+  \mathcal I_{G,\Xi}(\mathcal F;\mathbf K)
+  :=
+  \sum_{((q_y,\bar r_y),\eta_y)\in\mathcal F}
+  \mathcal I_{G,\Xi}(q_y,\bar r_y;\mathbf K).
+\]
+A Grand Meson decay readout of an active channel \(c=(q,\bar r)\) into
+\(\mathcal F_c\) is a closed readout family satisfying
+\[
+  \kappa_{\mathrm{GM}}^{\Xi}(c)
+  =
+  \kappa_{\mathrm{GM}}^{\Xi}(\mathcal F_c)
+  +
+  R^{\kappa}_{\mathrm{closed}},
+  \qquad
+  \mathcal I_{G,\Xi}(\mathcal F_c;\mathbf K)<\mathcal I_{G,\Xi}(c;\mathbf K),
+\]
+where \(R^{\kappa}_{\mathrm{closed}}\in\mathcal K_{\mathrm{GM}}\) is the
+charge-closure vector of a closed residual record.  For a channel \(c\),
+write
+\[
+  R_c^{\mathrm{fuse}}
+  :=
+  \mathbf 0_c[\mathrm{fuse}]
+\]
+for the fuse residual record of \(c\).
+\end{definition}
+
+\begin{theorem}[Fuse residual attached to a declared decay readout]
+Let \(c=(q,\bar r)\) be an active mesonic channel with
+\(c\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\).  If there exists a Grand
+Meson decay readout family \(\mathcal F_c\), then every finite Grand Meson
+readout \(H\) of \(c\) has the fuse residual record as its channel value:
+\[
+  H(c)=R_c^{\mathrm{fuse}}.
+\]
+In the present calculus, the declared decay readout is represented not as
+deletion but as a fuse residual record attached to a closed readout family.
+The family \(\mathcal F_c\) remains part of the separately declared closed
+readout relation above.
+\end{theorem}
+
+\begin{proof}
+Since \(c\in\Omega_{\mathrm{fuse}}(G,\Xi,\mathbf K)\), the finite fuse normal
+form says that any finite readout must agree with the fuse normal form
+on \(c\).  Hence \(H(c)=\mathbf 0_c[\mathrm{fuse}]=R_c^{\mathrm{fuse}}\).
+The assumed family \(\mathcal F_c\) is not derived from the zero object; it
+is an additional closed readout relation whose charge vector is conserved
+up to \(R^{\kappa}_{\mathrm{closed}}\) and whose imbalance is strictly
+lower.
+\end{proof}
+
+\begin{conjecture}[Possible diagnostic comparison with physical decay widths]
+For ordinary non-top mesonic channels for which a Standard Model decay
+amplitude exists, the Grand Meson imbalance
+\(\mathcal I_{G,\Xi}(q,\bar r;\mathbf K)\) is a closure-index shadow of the
+physical decay width.  This is a proposed external calibration problem, not
+a result of the Grand Meson calculus.  More precisely, after fixing the spin-parity sector
+and available final states, there is a monotone readout functional
+\(\mathcal R\) such that
+\[
+  \Gamma_{\mathrm{phys}}(q\bar r\to f)
+  =
+  \mathcal R\!\left(
+    \mathcal I_{G,\Xi}(q,\bar r;\mathbf K),\
+    \rho_f,\
+    |\mathcal A_{\mathrm{SM}}(q\bar r\to f)|^2
+  \right),
+\]
+where \(\rho_f\) is the final-state phase space and
+\(\mathcal A_{\mathrm{SM}}\) is the corresponding Standard Model amplitude.
+This conjecture does not replace the Standard Model decay formula; it asks
+whether the Grand Meson fuse index can be read as a closure layer above the
+ordinary amplitude.
+\end{conjecture}
 
 \begin{definition}[Anti-face fission]
 Let the opposite face on the same generation axis be
@@ -825,6 +2218,19 @@ which the anti-quark side of a channel is replaced by the opposite
 Grand Meson face on the same generation axis.
 \end{definition}
 
+\begin{axiom}[Sector-respecting identity]
+Grand Meson identity preserves the charge--flavor fingerprint:
+\[
+  O_{q\bar r}\equiv_{\mathrm{GM}} O_{s\bar t}
+  \quad\Longrightarrow\quad
+  \nu_{\mathrm{QCD}}(q,\bar r;\sigma)
+  =
+  \nu_{\mathrm{QCD}}(s,\bar t;\sigma).
+\]
+Thus two distinct quantum-number sectors may be related by an explicit
+transition with closed residue, but they may not be silently identified.
+\end{axiom}
+
 \begin{proposition}[Anti-face fission is a Grand Meson contradiction]
 Let
 \[
@@ -841,9 +2247,10 @@ the electric charge of \(q\) and \(e_q\) is its flavor unit.  If
 then identifying \(O_{q\bar r}\) with \(\Fis_{\bar F}(O_{q\bar r})\) is
 contradictory:
 \[
-  O_{q\bar r}\equiv \Fis_{\bar F}(O_{q\bar r})
+  O_{q\bar r}\equiv_{\mathrm{GM}} \Fis_{\bar F}(O_{q\bar r})
   \quad\Longrightarrow\quad
-  \Contr_{\mathrm{GM}}(q,\bar r).
+  \Contr_{\bar F}
+  \bigl(O_{q\bar r}\equiv_{\mathrm{GM}}\Fis_{\bar F}(O_{q\bar r})\bigr).
 \]
 \end{proposition}
 
@@ -879,10 +2286,10 @@ the same block occurs: \(Q_{\qu}-Q_{\qs}=+1\), whereas
   O_{\qu\bar{\qt}},
 \]
 the flipped readout also enters the top-axis closure condition above.
-Thus the Grand Meson does more than re-label QCD flavor bookkeeping: it
-detects a concrete wrong anti-face selection and leaves it outside every
-well-formed downgrade or ordinary readout.  The flipped symbol may only be
-treated as a distinct channel with its own package and quantum fingerprint.
+Thus the Grand Meson is not merely an untyped relabeling: it adds typed
+closure tests that expose wrong anti-face identifications.  The flipped
+symbol may only be treated as a distinct channel with its own package and
+quantum fingerprint.
 \end{remark}
 
 \begin{remark}[Worked channel table]
@@ -919,8 +2326,8 @@ The first seven rows are ordinary QCD mesonic readouts after closure.  The
 last two are not ordinary hadronic mesons in this framework; they are
 top-bearing weak-virtual channels.  In every row, the anti-face candidate
 changes the charge--flavor sector, so an attempted identification is a
-\(\Contr_{\mathrm{GM}}\) witness unless the residual channel is explicitly
-closed.
+\(\Contr_{\bar F}\) witness unless the residual channel is explicitly
+closed by a distinct transition.
 \end{remark}
 
 \begin{definition}[Grand Meson CKM lift]
@@ -944,6 +2351,14 @@ The Grand Meson lift places each CKM coefficient on its axis pair:
   :=
   (i,j,V_{ij}).
 \]
+For a channel package \(P_{q\bar r}\), the CKM closure predicate
+\(\CKMCl(P_{q\bar r})\) is not evaluated on the meson axis pair
+\((q,\bar r)\) itself.  It is evaluated on each weak charged-current edge
+actually used inside the package.  If such an edge has the form
+\(\bar u_{iL}\gamma^\mu d_{jL}\), then that edge must be annotated by
+\((i,j,V_{ij})\) and must recover \(V_{ij}\) after forgetting the Grand
+Meson labels.  If the package uses no weak charged-current edge, the CKM
+predicate is vacuous.
 \end{definition}
 
 \begin{proposition}[CKM recovery]
@@ -1007,7 +2422,7 @@ Thus
   \{\,(i,j,O_{q\bar r})\mid q\in A_i,\ r\in A_j,\ 1\le i,j\le3\,\}.
 \]
 
-\begin{proposition}[Conservative QCD completion]
+\begin{proposition}[Conservative operator-basis lift]
 Let
 \[
   \pi_{\mathrm{QCD}}(i,j,O_{q\bar r})=O_{q\bar r}.
@@ -1018,37 +2433,80 @@ Then
   =
   \mathrm{id}_{\mathsf Q_{\mathrm{mes}}}.
 \]
-Therefore the Grand Meson is a conservative completion of the QCD mesonic
-flavor sector: it adds the three-axis pair closure \((i,j)\) while
+Therefore the Grand Meson is a conservative lift of the QCD mesonic
+operator basis: it adds the three-axis pair label \((i,j)\) while
 preserving the color-singlet QCD operator.
 \end{proposition}
 
-\begin{remark}[Canonical completion property]
-The object \(\mathsf{GM}_{36}\) is used here as the canonical conservative
-completion of \(\mathsf Q_{\mathrm{mes}}\) satisfying the following
+\begin{remark}[Selector-relative completion property]
+Relative to a closed package selector \(\widehat P\), the object
+\(\mathsf{GM}_{36}\) is used here as a selector-relative conservative
+channel-index lift of \(\mathsf Q_{\mathrm{mes}}\) satisfying the following
 conditions:
 \begin{enumerate}[label=(\roman*)]
   \item each \(O_{q\bar r}\) has the unique generation-axis pair
     \((i,j)\) determined by \(q\in A_i\) and \(r\in A_j\);
   \item forgetting the axis pair and package data recovers \(O_{q\bar r}\);
   \item anti-face replacement and top-bearing ordinary readout produce
-    \(\Contr_{\mathrm{GM}}\) unless their residual channels close;
+    the typed contradiction witnesses \(\Contr_{\bar F}\) and
+    \(\Contr_{\mathrm{top}}(-;\mathcal R_{\mathrm{ch}})\) unless their
+    residual channels close;
   \item no new color representation or color force is introduced;
   \item the QCD quantum numbers, source Lagrangian, correlators, and CKM
     charged-current layer are preserved under forgetting.
 \end{enumerate}
-This is a canonical labeling and closure property, not a category-theoretic
+This is a selector-relative labeling and closure property, not a category-theoretic
 universal property in an unintroduced category.  If a later version defines
 such a category of completions, the required comparison map would have the
 form
 \[
   \theta:\mathsf{GM}_{36}\longrightarrow\mathcal X
 \]
-with
+for a completion \(\mathcal X\) equipped with its own recovery map
+\(\pi_{\mathcal X}:\mathcal X\to\mathsf Q_{\mathrm{mes}}\), with
 \[
-  \widehat{\Gamma}_{\mathrm{GM}}(O_{q\bar r})=(i,j,P_{q\bar r}),
+  \mathsf{GM}_{36}^{\mathrm{ch,cl}}
+  :=
+  \{\,(i,j,P_{q\bar r})\in\mathsf{GM}_{36}^{\mathrm{ch}}
+  \mid P_{q\bar r}\in\mathsf{Pol}^{\mathrm{res}}_{q\bar r}\,\}
+\]
+and a single dependent injection
+\[
+  \iota^{36}:\mathsf{GM}_{36}^{\mathrm{ch,cl}}\to\mathsf{GM}_{36},
   \qquad
-  \pi_{\mathrm{QCD}}\circ\theta\circ\widehat{\Gamma}_{\mathrm{GM}}
+  \iota^{36}(i,j,P_{q\bar r})
+  :=
+  G^{(q\bar r,P)},
+\]
+where all \(36\) slots are initialized by
+\[
+  G^{(q\bar r,P)}(a,\bar b)
+  :=
+  \begin{cases}
+    P, & (a,\bar b)=(q,\bar r),\\
+    \mathbf 0_{a\bar b}[\mathrm{buried}], & \text{otherwise}.
+  \end{cases}
+\]
+Choose a closed package selector
+\[
+  \widehat P:\mathsf Q_{\mathrm{mes}}\to\mathsf{Pol}^{\mathrm{res}},
+  \qquad
+  \widehat P(O_{q\bar r})\in\mathsf{Pol}^{\mathrm{res}}_{q\bar r}.
+\]
+For top-bearing operators, \(\widehat P\) selects only a weak-virtual closed
+package or a closed inactive residual package; it never selects an ordinary
+top-meson readout package.
+Then define
+\[
+  \widehat{\Gamma}^{\widehat P}_{\mathrm{GM}}(O_{q\bar r})
+  :=
+  (i,j,\widehat P(O_{q\bar r})),
+  \qquad q\in A_i,\ r\in A_j.
+\]
+Thus
+\[
+  \pi_{\mathcal X}\circ\theta\circ
+  \iota^{36}\circ\widehat{\Gamma}^{\widehat P}_{\mathrm{GM}}
   =
   \mathrm{id}_{\mathsf Q_{\mathrm{mes}}}.
 \]
@@ -1072,11 +2530,18 @@ The Grand Meson source lift is
   \sum_{i,j=1}^{3}
   \sum_{\substack{q\in A_i\\ r\in A_j}}
   \sum_{\sigma}
-  J_{ij,\sigma}^{q\bar r}\,O^{\Gamma_\sigma}_{q\bar r}.
+  \left(
+    J_{ij,\sigma}^{q\bar r}\,O^{\Gamma_\sigma}_{q\bar r}
+    +
+    \overline{J_{ij,\sigma}^{q\bar r}}\,
+    (O^{\Gamma_\sigma}_{q\bar r})^\dagger
+  \right).
 \]
 Here \(J_{ij,\sigma}^{q\bar r}\) is not a new color force.  It is the
 closed Grand Meson source attached to the axis pair \((i,j)\) and
-spin-parity sector \(\sigma\).
+spin-parity sector \(\sigma\).  The Hermitian-conjugate term is included
+so that charged or otherwise non-Hermitian bilinears give a real
+Lagrangian density.
 \end{definition}
 
 \begin{proposition}[Lagrangian recovery]
@@ -1087,6 +2552,9 @@ Setting all Grand Meson sources to zero recovers QCD:
 Forgetting the axis-pair labels sends the lifted source terms back to the
 ordinary mesonic source sector
 \[
+  J_{\sigma}^{q\bar r}:=J_{ij,\sigma}^{q\bar r}
+  \quad(q\in A_i,\ r\in A_j),
+  \qquad
   \sum_{q,r\in F_6}\sum_{\sigma}
   J_{\sigma}^{q\bar r}O^{\Gamma_\sigma}_{q\bar r}.
 \]
@@ -1095,15 +2563,8 @@ adding axis-channel closure, not by altering the color-gauge core.
 \end{proposition}
 
 \begin{definition}[Grand Meson quantum numbers]
-Let \(Q_q\) be the electric charge of quark \(q\), and let
-\(e_q\in\mathbb Z^{F_6}\) be the flavor unit at channel \(q\).  For a
-color-singlet mesonic channel with spin-parity label \(\sigma\), define
-\[
-  \nu_{\mathrm{QCD}}(q,\bar r;\sigma)
-  :=
-  (\sigma,\ Q_q-Q_r,\ e_q-e_r,\ \mathsf B_{\mathrm{ary}}=0,\
-  \mathbf 1_{\mathrm c}).
-\]
+Recall the previously defined QCD quantum fingerprint
+\(\nu_{\mathrm{QCD}}(q,\bar r;\sigma)\).
 The Grand Meson lift is
 \[
   \nu_{\mathrm{GM}}(q,\bar r;\sigma)
@@ -1176,6 +2637,13 @@ and lift it to
   :=
   (\mathbf a_{ij},\ K_{\mathrm{QCD}}(q\bar r)).
 \]
+Let \(\mathcal R_{\mathrm{axis}}\subseteq\mathbb Z^{3\times3}\) be the
+declared set of closed axis-residue records, and define
+\[
+  \AxisCl(R)
+  \quad\Longleftrightarrow\quad
+  R\in\mathcal R_{\mathrm{axis}}.
+\]
 \end{definition}
 
 \begin{proposition}[Conservation-law recovery]
@@ -1188,6 +2656,10 @@ QCD conservation is
 \]
 The Grand Meson conservation condition is
 \[
+  R_{\mathrm{axis}}(\mathcal P)
+  :=
+  \sum_{\alpha}\eta_{\alpha}\mathbf a_{i_\alpha j_\alpha},
+  \qquad
   \sum_{\alpha}\eta_{\alpha}
   K_{\mathrm{GM}}(q_\alpha\bar r_\alpha)
   =
@@ -1195,28 +2667,32 @@ The Grand Meson conservation condition is
 \]
 Thus QCD conservation is recovered by forgetting the axis residue
 \(R_{\mathrm{axis}}\).  A closed Grand Meson process has
-\(R_{\mathrm{axis}}=0\); otherwise the nonzero axis residue must be
-closed rather than ignored.
+\(R_{\mathrm{axis}}=0\); otherwise the nonzero axis residue must satisfy
+\[
+  \AxisCl(R_{\mathrm{axis}}(\mathcal P))
+\]
+rather than being ignored.
 \end{proposition}
 
-At this level QCD becomes concise: its mesonic flavor sector is the union
-of one-axis terms \((i=i)\) and two-axis terms \((i\ne j)\) among the
-three Grand Meson axes.  The dynamics of color is not discarded; it is the
+At this bookkeeping level, the mesonic flavor sector of QCD is represented
+compactly as the union of one-axis terms \((i=i)\) and two-axis terms
+\((i\ne j)\) among the three Grand Meson axes.  The dynamics of color is not discarded; it is the
 singlet contraction already present in \(O_{q\bar r}\).  Channels touching
 \(\qt\) are retained as weak-virtual channels satisfying closure, not as ordinary
 top mesons.
 
-\section{Einstein's Gate}
+\section{Lorentz-Covariant Readout Condition}
 
 The Grand Meson must also avoid the classical aether failure.  It is not a
 hidden medium with an absolute state of rest.  It is a local six-face
 mediator with a \(36\)-channel oriented body whose outputs must be readable
 without introducing an absolute frame.
-Einstein's Gate is not a claim of Einstein's endorsement.  It names the
-closure condition inherited from relativity: no mesonic theory may
-reintroduce an absolute hidden medium.
+The nickname sometimes used for this condition is not a claim of Einstein's
+endorsement.  It is only a shorthand for the Lorentz-covariant readout
+condition: no mesonic channel calculus may reintroduce an absolute hidden
+medium.
 
-\begin{axiom}[Einstein's Gate: no absolute mesonic frame]
+\begin{axiom}[Lorentz-covariant readout: no absolute mesonic frame]
 No equation in the Grand Meson theory may depend on a privileged global
 rest frame of the mediator.  Only resolved flavor channels, local channel closure, and
 observer-readable projections may be used.
@@ -1249,45 +2725,43 @@ Thus \((i,j)\) are internal scalar labels, not aether-like spacetime
 degrees of freedom.
 \end{axiom}
 
-\begin{remark}[Observer-side fission test]
-Let a concept or entity \(X\) be represented by a closed Grand Meson state
-\(g_X\).  A thought experiment may introduce a proposed fission symbol
-\(d:g_X\Downarrow m_X\) and later reclose the discussion by fusion.  This
-does not damage the theory when the whole argument remains inside
-\(\Mor_{\mathrm{GM}}\).  If, however, the proposed fission leaves a
-contradiction witness
-\[
-  \Contr_{\mathrm{GM}}(d),
-\]
-then the symbol has already left the Grand Meson transition space.  Any
-later observer class \(\mathcal O\) may then split the reading of \(X\)
-into a closed reading and a fission-intent reading:
-\[
-  \Contr_{\mathrm{GM}}(d)
-  \quad\Longrightarrow\quad
-  \exists r_1,r_2\in\Read_{\mathcal O}(X)
-  \ \text{with}\ r_1\ne r_2 .
-\]
-The point is not an external second act.  The point is that an unclosed
-anti-face fission, once it leaves the category of the argument, is already
-enough to split the observer-side readout.  Einstein's Gate therefore
-requires thought experiments about fission to close before projection to
-observers.
-\end{remark}
+This axiom does not ban mediation.  It bans absolute mediation.  The Grand
+Meson is therefore not a return to the classical aether.  It is a
+channel-resolved local mediator that must survive projection into closed
+observations.
 
-This axiom is Einstein's Gate.  It does not ban mediation.  It bans
-absolute mediation.  The Grand Meson is therefore not a return to the
-classical aether.  It is a channel-resolved local mediator that must survive
-projection into closed observations.
-
-\section{Why \texorpdfstring{\(n=3\)}{n=3} Is the Minimal Complete Cover}
+\section{Minimal Cover Relative to the Fixed Six-Flavor Input}
 
 Formally one may define an \(n\)-meson by
 \[
-  \mathsf{Mes}_n:=(\mathsf{Pol}^{\mathrm{res}})^{2n}.
+  G_n:=\{1,\ldots,n\},
+  \qquad
+  F_{2n}:=G_n\times H_2 .
 \]
-The case \(n=1\) is the General Meson.  The case \(n=3\) is the Grand
-Meson.
+For a formal flavor set \(S\), assume a typed pre-package family
+\[
+  \mathsf{PrePol}^{S,\mathrm{res}}_{a\bar b}
+  \qquad(a,b\in S),
+\]
+and define the corresponding relative face by
+\[
+  \mathsf{Face}^{S,\mathrm{res}}_{a|S}
+  :=
+  \prod_{b\in S}\mathsf{PrePol}^{S,\mathrm{res}}_{a\bar b}
+  \times
+  \prod_{c\in S}\mathsf{PrePol}^{S,\mathrm{res}}_{c\bar a}.
+\]
+Then
+\[
+  \mathsf{Mes}_n
+  :=
+  \prod_{(i,\epsilon)\in F_{2n}}
+  \mathsf{Face}^{F_{2n},\mathrm{res}}_{(i,\epsilon)|F_{2n}} .
+\]
+The case \(n=1\) is the formal two-face analog of the General Meson; it
+becomes the General Meson after choosing the identification
+\(F_2\cong A_Y\).  The case \(n=3\) becomes the Grand Meson after applying
+the observed-flavor identification \(\Phi:F_6\cong G_3\times H_2\).
 
 The reason to stop at \(n=3\) is not that higher \(n\) is impossible, and
 it is not a proof of why nature has exactly three generations.  It is that
@@ -1298,19 +2772,15 @@ the known six-flavor quark sector already factors as
 Therefore \(n=3\) is the exact internal-generation cover of the present
 mesonic flavor sector:
 \[
-  \Read_{G_3}(\mathsf{Mes}_3)
-  =
-  \Read_{G_3}((\mathsf{Pol}^{\mathrm{res}})^{G_3\times H_2}).
+  \mathsf{Mes}_3
+  \cong
+  \prod_{(i,\epsilon)\in G_3\times H_2}
+  \mathsf{Face}^{\mathrm{res}}_{\Phi(i,\epsilon)|F_6}.
 \]
 For \(n>3\), additional axes require additional readout structure.  Such
 structure may be meaningful in a later theory, but it is not required for
-the present six-flavor sector:
-\[
-  \Read_{G_3}(\mathsf{Mes}_n)
-  \not>
-  \Read_{G_3}(\mathsf{Mes}_3)
-  \qquad(n>3).
-\]
+the present six-flavor sector.  No order relation on readout power is used
+here; the claim is only minimality relative to the fixed six-flavor input.
 
 Thus \(n=3\) is the minimal complete cover for the present Grand Meson
 input: complete because it covers the known three-generation quark sector,
@@ -1323,38 +2793,45 @@ must be rerun rather than silently extended.
 \section{Closed Transition}
 
 Grand Meson robustness is not the absence of change.  It is the closure of
-every changed channel.  Let a proposed transition symbol be written
+every changed face or body channel.  The body version was defined in the
+Grand Fuse section.  The face version is as follows.  Let a proposed face
+transition symbol be written
 \[
   u:g\to g'.
 \]
-Define its changed-channel support by
+It carries source and target skeletons
 \[
-  \Delta_{\mathrm{ch}}(u)
+  s(u)=g,\qquad t(u)=g'.
+\]
+Define its changed-face support by
+\[
+  \Delta_{\mathrm{face}}(u)
   :=
-  \{q\in F_6\mid g(q)\ne g'(q)\}.
+  \{q\in F_6\mid s(u)(q)\ne t(u)(q)\}.
 \]
 
 \begin{definition}[Grand Meson transition space]
-The Grand Meson transition space is
+The face transition space is
 \[
-  \Mor_{\mathrm{GM}}
+  \Mor^{\mathrm{face}}_{\mathrm{GM}}
   :=
   \{\,u:g\to g'
   \mid
-  \Delta_{\mathrm{ch}}(u)\subseteq\RCl(u)\,\}.
+  \Delta_{\mathrm{face}}(u)\subseteq\RCl_{\mathrm{face}}(u)\,\}.
 \]
 The contradiction predicate for a proposed transition symbol is
 \[
-  \Contr_{\mathrm{GM}}(u)
+  \Contr_{\mathrm{tr}}(u)
   :=
-  \Delta_{\mathrm{ch}}(u)\setminus\RCl(u)\ne\varnothing .
+  \Delta_{\mathrm{face}}(u)\setminus\RCl_{\mathrm{face}}(u)
+  \ne\varnothing .
 \]
 \end{definition}
 
 \begin{proposition}[Transition block]
-If \(\Contr_{\mathrm{GM}}(u)\), then
+If \(\Contr_{\mathrm{tr}}(u)\), then
 \[
-  u\notin\Mor_{\mathrm{GM}}.
+  u\notin\Mor^{\mathrm{face}}_{\mathrm{GM}}.
 \]
 Consequently a channel-boundary crossing without closure does not name an
 operation inside the Grand Meson theory; it is a contradiction witness
@@ -1362,19 +2839,40 @@ outside the transition space.
 \end{proposition}
 
 \begin{proof}
-By definition, \(u\in\Mor_{\mathrm{GM}}\) requires
-\(\Delta_{\mathrm{ch}}(u)\subseteq\RCl(u)\).  The predicate
-\(\Contr_{\mathrm{GM}}(u)\) states that
-\(\Delta_{\mathrm{ch}}(u)\setminus\RCl(u)\) is nonempty.  These conditions are
-inconsistent, so the proposed symbol cannot inhabit \(\Mor_{\mathrm{GM}}\).
+By definition, \(u\in\Mor^{\mathrm{face}}_{\mathrm{GM}}\) requires
+\(\Delta_{\mathrm{face}}(u)\subseteq\RCl_{\mathrm{face}}(u)\).  The
+predicate \(\Contr_{\mathrm{tr}}(u)\) states that
+\(\Delta_{\mathrm{face}}(u)\setminus\RCl_{\mathrm{face}}(u)\) is nonempty.
+These conditions are inconsistent, so the proposed symbol cannot inhabit
+\(\Mor^{\mathrm{face}}_{\mathrm{GM}}\).
 \end{proof}
 
 \begin{definition}[Physical well-formedness]
 A physically well-formed Grand Meson transition must satisfy
 \[
+  \mathrm{Cons}_{\mathrm{QCD}}(u)
+  \Longleftrightarrow
+  \text{the QCD conservation vector of the transition carried by }u
+  \text{ is zero},
+\]
+\[
+  \mathrm{Lag}_{\mathrm{GM}}(u)
+  \Longleftrightarrow
+  \text{the transition carried by }u
+  \text{ has a declared Grand Meson source-layer term},
+\]
+and
+\[
+  \mathrm{Obs}_{\mathrm{GM}}(u)
+  \Longleftrightarrow
+  \text{the transition carried by }u
+  \text{ has a declared observable readout or correlator}.
+\]
+Then
+\[
   \mathrm{PhysWF}(u)
   :=
-  \bigl(u\in\Mor_{\mathrm{GM}}\bigr)
+  \bigl(u\in\Mor^{\mathrm{face}}_{\mathrm{GM}}\bigr)
   \wedge
   \mathrm{Cons}_{\mathrm{QCD}}(u)
   \wedge
@@ -1393,27 +2891,57 @@ Equivalently,
   \text{non-transition}=\text{unclosed discontinuity}.
 \]
 The discontinuity itself is not the contradiction.  Without channel closure,
-the corresponding transition symbol has no place in \(\Mor_{\mathrm{GM}}\).
+the corresponding transition symbol has no place in the typed Grand Meson
+transition spaces.
 
 \section{Conclusion}
 
 The Grand Meson is not proposed as an omnipotent meson.  It is proposed as
-a closed \(n=3\) general-purpose meson:
+a closed \(n=3\) channel-completion calculus for mesonic sectors:
 \[
-  \mathsf{Grand}=(\mathsf{Pol}^{\mathrm{res}})^{6}.
+  \mathsf{Grand}=\mathsf{Grand}_{\mathrm{comp}}
+  =
+  \operatorname{Im}
+  \bigl(\skel:\mathsf{Body}_{36}^{\mathrm{cl}}
+  \to\mathsf{Grand}^{\mathrm{raw}}\bigr),
+  \qquad
+  \mathsf{GM}_{36}=\mathsf{Body}_{36}^{\mathrm{cl}}.
 \]
 It conservatively recovers the General Meson by a surjective projection,
 replaces missing channels with resolved flavor channels, avoids an absolute aether frame,
 and treats robustness as channel closure rather than immobility.  Its backward
 compatibility is therefore responsible: extra axes may be fused into the
-older face only with a residual channel closure, while unclosed fission
-reduces to \(\Contr_{\mathrm{GM}}\) and has an empty transition class.
+older face only with residual closure, while unclosed fission reduces to a
+typed Grand Meson contradiction and has an empty transition class.
 
 The path is therefore narrow.  Begin with the \(\qu\leftrightarrow\qd\)
 eye that already works.  Open \(\qc\leftrightarrow\qs\) and
 \(\qt\leftrightarrow\qb\) without breaking it.  Stop at \(n=3\) until a
 future theory can make higher axes readable without turning them into a
 burden of infinite explanation.
+
+\section*{Non-Technical Appendix: Observer-Side Fission}
+
+This note is not used in any theorem above.  It records a philosophical
+reading of the downgrade discipline.  Let a concept or entity \(X\) be
+represented by a closed Grand Meson state \(g_X\).  A thought experiment may
+introduce a proposed fission symbol \(d:g_X\Downarrow m_X\) and later
+reclose the discussion by fusion.  This does not damage the technical
+calculus when the whole argument remains inside the typed transition
+spaces.  If, however, the proposed fission leaves a contradiction witness
+\[
+  \Contr_{\mathrm{dow}}(d),
+\]
+then the symbol has already left the Grand Meson transition space.  As an
+observer-side convention, a later observer class \(\mathcal O\) may record
+a closed reading and a fission-intent reading,
+\[
+  r_{\mathrm{closed}},r_{\mathrm{intent}}\in\Read_{\mathcal O}(X),
+  \qquad
+  r_{\mathrm{closed}}\ne r_{\mathrm{intent}}.
+\]
+This is an interpretive appendix, not a consequence of Lorentz covariance
+or of the Lorentz-covariant readout condition.
 
 \section*{Acknowledgement}
 
