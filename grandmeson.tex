@@ -24,7 +24,8 @@
 
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\Read}{Read}
-\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Top}{Top}
 \newcommand{\qu}{\mathrm u}
 \newcommand{\qd}{\mathrm d}
 \newcommand{\qc}{\mathrm c}
@@ -41,16 +42,23 @@
 
 \begin{abstract}
 This paper introduces the Grand Meson, not as a theory of everything, but
-as a safe \(n=3\) general-purpose mesonic object.  The starting point is the
-General Meson: a two-port Yukawa-style mediator read, in modern quark
+as an admissible \(n=3\) general-purpose mesonic object.  The starting point is the
+General Meson: a two-channel Yukawa-style mediator read, in modern quark
 language, through the light pair \(\qu\leftrightarrow\qd\).  The Grand
 Meson opens the two remaining readable quark-pair axes and thereby becomes
-a three-axis, six-port mediator.  The extension is conservative: the
-original two-port meson is recovered by projection, while the new ports are
-registered as defined, null, or active instead of being left outside the
-type of the theory.  The central claim is modest and structural: the Grand
-Meson is the first complete and last safe mesonic case for a
-three-dimensional observer.
+a three-axis, six-channel mediator.  The extension is conservative: the
+original two-channel meson is recovered by projection, while the new channels are
+resolved as open, inactive, or active instead of being left outside the
+channel basis.  The observed three quark generations are represented as
+internal Grand Meson directions.  Backward compatibility is surjective, but
+downgrading with unclosed residue is treated as an inadmissible channel.  The
+central claim is modest and structural: the Grand Meson is the first
+complete and last admissible mesonic case for the present three-generation
+internal readout.  Its
+admissibility mechanism is internal to the formal system: without adding external
+prohibitions or ethical principles, fission-class risk is contained
+mathematically as unclosed residue and rejected as an inadmissible
+channel.
 \end{abstract}
 
 \section{Opening}
@@ -58,20 +66,21 @@ three-dimensional observer.
 A meson is usually approached through its physical role: it mediates an
 interaction.  In the present paper the same word is first read through its
 paired role.  A meson stands between two complementary light-flavor faces.
-In the Yukawa-facing reconstruction used here, that pair is
+In the Yukawa-facing reconstruction used here, that channel pair is
 \[
   \qu\leftrightarrow\qd.
 \]
-This pair is not yet a full dynamics.  It is the minimum shape of a
-mediator: an oriented reading may run \(\qu\to\qd\) or \(\qd\to\qu\), and
-the middle term makes the relation nameable.  Yukawa did not formulate his
-meson with quark flavors; the notation is a present reconstruction of the
-light pair behind the proton--neutron mediation problem.
+This is not a quark--quark bound state.  It is the light-flavor channel face
+from which the QCD readout later forms \(q\bar r\) channels such as
+\(\qu\bar{\qd}\), \(\qd\bar{\qu}\), \(\qu\bar{\qu}\), and
+\(\qd\bar{\qd}\).  Yukawa did not formulate his meson with quark flavors;
+the notation is a present reconstruction of the light pair behind the
+proton--neutron mediation problem.
 
 The former working nickname ``Ethon'' is retired here.  The technical
 object of this paper is the Grand Meson.  The name is structural, not
-honorific: ``grand'' means that a two-port light-pair meson has been closed
-into the safe three-axis case.
+honorific: ``grand'' means that a two-channel light-pair meson has been closed
+into the admissible three-axis case.
 
 \section{The General Meson}
 
@@ -87,8 +96,15 @@ smallest implementation may be generated from
 but no physical charge, amplitude, or particle identity is assigned to
 these pseudo-values at this level.
 
+\begin{remark}[Role of \(\mathsf{Pol}\)]
+\(\mathsf{Pol}\) is a mesonic channel carrier.  It is not by itself a
+wavefunction, an amplitude, a charge, or a Hamiltonian state.  Physical
+content enters only after the QCD, Lagrangian, quantum-number, observable,
+and conservation channels are specified.
+\end{remark}
+
 \begin{definition}[General Meson]
-A General Meson is a two-port mesonic record
+A General Meson is a two-channel mesonic configuration
 \[
   m:A_Y\to\mathsf{Pol}.
 \]
@@ -96,8 +112,9 @@ Equivalently,
 \[
   \mathsf{Gen}:=\mathsf{Pol}^{A_Y}.
 \]
-The ports \(\qu\) and \(\qd\) are the two light-flavor faces of the
-Yukawa-style mesonic record.
+The faces \(\qu\) and \(\qd\) are the two light-flavor faces of the
+Yukawa-style mesonic channel.  They are channel faces, not the two
+constituents of a physical meson.
 \end{definition}
 
 This definition deliberately keeps the Yukawa-style mediator idea narrow.
@@ -106,27 +123,47 @@ mesonic act is readable mediation across the \(\qu,\qd\) light pair.  In
 that sense a General Meson is the optimal eye for the nuclear-force
 problem: the proton--neutron transition axis is already specified by the
 problem itself.
+The light-pair configuration is not by itself a derivation of the Yukawa
+potential.  That recovery belongs to the low-energy pion channel after the
+QCD readout has supplied \(q\bar r\) operators, quantum numbers, and
+observables.
 
-\section{The Hidden Cost of Undefined Ports}
+\section{The Hidden Cost of Missing Channels}
 
-The decisive distinction is between null and undefined.  A null port is
-known to be empty.  An undefined port has not entered the type of the
-theory.
+The decisive distinction is between an inactive channel and a missing
+channel.  An inactive channel belongs to the channel basis and carries no
+active contribution.  A missing channel has not entered the channel basis.
 
 \[
-  \mathbf 0=\text{registered null},
+  \mathbf 0=\text{resolved inactive channel},
   \qquad
-  \bot=\text{unregistered undefined}.
+  \bot=\text{missing channel}.
 \]
 
-\begin{definition}[Undefined lift]
+\begin{definition}[Inactive-channel provenance]
+The symbol \(\mathbf 0\) is a formal null, not a universal physical zero.
+When physical input is available, an inactive channel may be refined by a
+provenance tag
+\[
+  \mathbf 0[\rho],
+  \qquad
+  \rho\in
+  \{\mathrm{selection},\mathrm{kinematic},\mathrm{coupling},
+    \mathrm{sensitivity},\mathrm{integrated}\}.
+\]
+Thus a forbidden channel, an energetically unreachable channel, a zero
+coupling, an experimentally unresolved signal, and an integrated-out
+contribution are not collapsed into the same physical claim.
+\end{definition}
+
+\begin{definition}[Missing-channel lift]
 Let
 \[
   F_6=\{\qu,\qd,\qc,\qs,\qt,\qb\},
   \qquad
   \mathsf{Pol}_{\bot}:=\mathsf{Pol}\cup\{\bot\}.
 \]
-The undefined lift of a General Meson \(m\in\mathsf{Gen}\) is
+The missing-channel lift of a General Meson \(m\in\mathsf{Gen}\) is
 \[
   L_{\bot}(m):F_6\to\mathsf{Pol}_{\bot}
 \]
@@ -142,12 +179,12 @@ and
 \end{definition}
 
 Thus the remaining axes are not false, not zero, and not disproved.  They
-are absent from the original type.  The two-port theory remains locally
-correct while it cannot register consequences that travel through the
-untyped directions.
+are absent from the original channel basis.  The two-channel theory remains
+locally correct while it cannot close propagation that travels
+through the missing directions.
 
-\begin{remark}[Meta-theoretic reading]
-The undefined ports are not a defect in the original General Meson.  They
+\begin{remark}[Physical reading]
+The missing channels are not a defect in the original General Meson.  They
 are the price of a successful restriction.  A narrow mediator may solve its
 local problem precisely because it does not carry the full burden of every
 other axis.
@@ -155,12 +192,12 @@ other axis.
 
 \section{The Grand Meson}
 
-The Grand Meson is obtained by replacing undefined ports with readable
-ports.  A port may be active, or it may be null, but it may not be outside
-the type.
+The Grand Meson is obtained by replacing missing channels with resolved
+flavor channels.  A channel may be active or inactive, but it may not be
+outside the channel basis.
 
 \begin{definition}[Grand Meson]
-A Grand Meson is a six-port mesonic record
+A Grand Meson is a six-channel mesonic configuration
 \[
   g:F_6\to\mathsf{Pol}.
 \]
@@ -168,35 +205,38 @@ Equivalently,
 \[
   \mathsf{Grand}:=\mathsf{Pol}^{F_6}.
 \]
-The six ports are grouped into three readable axes:
+The six channels are grouped into three readable axes:
 \[
   \qu\leftrightarrow\qd,\qquad
   \qc\leftrightarrow\qs,\qquad
   \qt\leftrightarrow\qb.
 \]
+These axes are internal flavor-generation axes.  They are not spatial
+directions, and they are not quark--quark bound states.  Physical mesons
+enter through oriented \(q\bar r\) channels in the QCD readout.
 \end{definition}
 
-In this notation the Grand Meson is the safe \(n=3\) object:
+In this notation the Grand Meson is the admissible \(n=3\) object:
 \[
   \mathsf{Grand}=\mathsf{Pol}^{2\cdot 3}.
 \]
-The adjective ``safe'' means that all three axes are typed.  It does not
-mean that every transition is allowed, nor that every physical theory has
-been solved.
+The adjective ``admissible'' means that all three axes belong to the
+channel basis.  It does not mean that every transition is allowed, nor that
+every physical theory has been solved.
 
-\begin{definition}[Registered support]
+\begin{definition}[Channel support]
 For \(g\in\mathsf{Grand}\), define
 \[
   \supp(g)=\{q\in F_6\mid g(q)\ne\mathbf 0\}.
 \]
-A Grand Meson may have inactive ports, but inactivity is registered by
+A Grand Meson may have inactive channels, but inactivity is resolved by
 \(\mathbf 0\), not by \(\bot\).
 \end{definition}
 
 \section{Conservative Recovery}
 
 The Grand Meson must not destroy the General Meson.  It must contain it as
-the two-port face that was already working.
+the two-channel face that was already working.
 
 \begin{definition}[Projection to the General Meson]
 Define the \(\qu,\qd\)-projection
@@ -218,19 +258,406 @@ agrees with it.  In particular, if \(g(\qu)=m(\qu)\) and \(g(\qd)=m(\qd)\), then
 \end{proposition}
 
 \begin{proof}
-The projection \(p_{\qu\qd}\) discards the four ports outside
+The projection \(p_{\qu\qd}\) discards the four channels outside
 \(\{\qu,\qd\}\) and keeps exactly the light-pair values.  Therefore
-agreement on those two ports is sufficient and necessary for recovery.
+agreement on those two channels is sufficient and necessary for recovery.
 \end{proof}
 
 This is the main discipline of the construction.  The Grand Meson does not
 rewrite the older meson.  It keeps the working \(\qu\leftrightarrow\qd\)
-face and opens two additional quark-pair faces under explicit registration.
+face and opens two additional quark-pair faces under explicit channel
+closure.
+
+\section{Surjective Backward Compatibility}
+
+Backward compatibility must be surjective, not merely suggestive.  Every
+General Meson must be obtainable as the visible face of at least one Grand
+Meson.
+
+\begin{definition}[Zero extension]
+For \(m\in\mathsf{Gen}\), define the zero extension
+\[
+  z(m):F_6\to\mathsf{Pol}
+\]
+by
+\[
+  z(m)(\qu)=m(\qu),\qquad z(m)(\qd)=m(\qd),
+\]
+and
+\[
+  z(m)(q)=\mathbf 0
+  \qquad(q\in F_6\setminus A_Y).
+\]
+\end{definition}
+
+\begin{proposition}[Surjective backward map]
+The projection \(p_{\qu\qd}:\mathsf{Grand}\to\mathsf{Gen}\) is surjective:
+\[
+  p_{\qu\qd}\circ z=\mathrm{id}_{\mathsf{Gen}}.
+\]
+\end{proposition}
+
+\begin{proof}
+The zero extension preserves the \(\qu,\qd\)-face of \(m\) and resolves
+all other channels as inactive.  Projecting back to the
+\(\qu,\qd\)-face therefore returns exactly \(m\).
+\end{proof}
+
+Surjectivity gives power: a Grand Meson can always be read as an ordinary
+General Meson.  The same operation also carries responsibility, because the
+four hidden channels may contain active structure.
+
+\begin{definition}[Downgrade residue]
+For \(g\in\mathsf{Grand}\), define the downgrade residue
+\[
+  R_{\perp}(g):=g|_{F_6\setminus A_Y}.
+\]
+A downgrade \(g\Downarrow m\) is physically admissible when
+\[
+  p_{\qu\qd}(g)=m
+  \qquad\text{and}\qquad
+  R_{\perp}(g)\in\Cl(g\Downarrow m).
+\]
+If \(R_{\perp}(g)\not\equiv\mathbf 0\) and the residue is not included in
+the channel closure, the downgrade is inadmissible.
+\end{definition}
+
+\begin{remark}[Fusion and fission]
+Fusion is the admissible downgrade: the active extra axes are collapsed
+into the General Meson face only with an explicit residual channel.  Fission
+is the inadmissible downgrade: the same projection is attempted while the
+extra axes are discarded as if they had never contributed.  In the Grand
+Meson channel discipline, fission is not a physical mystery; it is an
+unclosed residual channel.
+\end{remark}
+
+\section{QCD Generalization}
+
+The Grand Meson generalizes the QCD mesonic flavor sector by refining each
+color-singlet quark--antiquark bilinear into a closed pair of flavor
+axes.  Let the three flavor axes be
+\[
+  A_1=\{\qu,\qd\},\qquad
+  A_2=\{\qc,\qs\},\qquad
+  A_3=\{\qt,\qb\}.
+\]
+
+\begin{definition}[Generation as internal direction]
+Let
+\[
+  G_3=\{1,2,3\},
+  \qquad
+  H_2=\{+,-\}.
+\]
+Define
+\[
+  \Phi:G_3\times H_2\longrightarrow F_6
+\]
+by
+\[
+  (1,+)\mapsto\qu,\quad (1,-)\mapsto\qd,\quad
+  (2,+)\mapsto\qc,\quad (2,-)\mapsto\qs,\quad
+  (3,+)\mapsto\qt,\quad (3,-)\mapsto\qb .
+\]
+Then
+\[
+  A_i=\Phi(\{i\}\times H_2).
+\]
+\end{definition}
+
+\begin{proposition}[Three generations are Grand Meson directions]
+The six-flavor Grand Meson decomposes as
+\[
+  \mathsf{Grand}
+  =
+  \mathsf{Pol}^{F_6}
+  \cong
+  \mathsf{Pol}^{G_3\times H_2}
+  \cong
+  \left(\mathsf{Pol}^{H_2}\right)^{G_3}.
+\]
+Thus the three observed quark generations are not external decorations of
+the six-channel configuration.  They are the three internal directions of the Grand
+Meson, each carrying one up-type and one down-type face.
+\end{proposition}
+
+\begin{definition}[Top-axis admissibility]
+The third direction
+\[
+  A_3=\{\qt,\qb\}
+\]
+is not an ordinary top-meson axis.  It is a weak-virtual channel axis.
+For a channel \(q\bar r\), define
+\[
+  \Top(q\bar r)
+  \quad\Longleftrightarrow\quad
+  (q=\qt)\ \text{or}\ (r=\qt).
+\]
+An ordinary mesonic readout is admissible only when \(\Top(q\bar r)\) is
+false.  If \(\Top(q\bar r)\) is true, the channel must be read through a
+weak-virtual channel closure
+\[
+  \mathsf{WCl}(q\bar r)\in\Cl .
+\]
+\end{definition}
+
+\begin{proposition}[Unclosed top readout is GM-inadmissible]
+Let \((i,j,O_{q\bar r})\) be a Grand Meson lifted channel.  If
+\(\Top(q\bar r)\) holds and \(\mathsf{WCl}(q\bar r)\notin\Cl\), then the
+attempt to read \((i,j,O_{q\bar r})\) as an ordinary meson is inadmissible.
+Equivalently, the channel is Grand-inadmissible:
+\[
+  \Top(q\bar r)
+  \ \wedge\
+  \mathsf{WCl}(q\bar r)\notin\Cl
+  \quad\Longrightarrow\quad
+  \mathrm{GM\mbox{-}inadmissible}.
+\]
+\end{proposition}
+
+\begin{definition}[Grand Meson CKM lift]
+Let
+\[
+  U_L=(\qu_L,\qc_L,\qt_L)^T,\qquad
+  D_L=(\qd_L,\qs_L,\qb_L)^T,
+\]
+and let \(V_{\mathrm{CKM}}=(V_{ij})\in U(3)\) be the charged-current
+flavor-mixing matrix.  The ordinary weak current is
+\[
+  J^\mu_+
+  =
+  \bar U_L\gamma^\mu V_{\mathrm{CKM}}D_L
+  =
+  \sum_{i,j=1}^{3}V_{ij}\,\bar u_{iL}\gamma^\mu d_{jL}.
+\]
+The Grand Meson lift places each CKM coefficient on its axis pair:
+\[
+  \Gamma_{\mathrm{GM}}^{\mathrm{CKM}}(V_{ij})
+  :=
+  (i,j,V_{ij}).
+\]
+\end{definition}
+
+\begin{proposition}[CKM recovery]
+Let \(\pi_{\mathrm{CKM}}(i,j,V_{ij})=V_{ij}\).  Then forgetting the Grand
+Meson axis labels recovers the ordinary CKM current:
+\[
+  \sum_{i,j}\pi_{\mathrm{CKM}}
+  \bigl(\Gamma_{\mathrm{GM}}^{\mathrm{CKM}}(V_{ij})\bigr)
+  \bar u_{iL}\gamma^\mu d_{jL}
+  =
+  J^\mu_+ .
+\]
+Thus CKM mixing is the charged-current axis-mixing layer of the Grand
+Meson, not a modification of QCD color dynamics.
+\end{proposition}
+
+The ordinary QCD mesonic operator basis is
+\[
+  \mathsf Q_{\mathrm{mes}}
+  :=
+  \left\{
+    O_{q\bar r}:=\sum_{a=1}^{3}q^a\bar r_a
+    \ \middle|\ q,r\in F_6
+  \right\}.
+\]
+Standard channels are recovered inside this basis, for example
+\[
+  \pi^+\sim O_{\qu\bar{\qd}},\quad
+  K^+\sim O_{\qu\bar{\qs}},\quad
+  D^0\sim O_{\qc\bar{\qu}},\quad
+  B^-\sim O_{\qb\bar{\qu}},
+\]
+and
+\[
+  J/\psi\sim O_{\qc\bar{\qc}},
+  \qquad
+  \Upsilon\sim O_{\qb\bar{\qb}},
+  \qquad
+  \eta,\eta'\sim
+  \mathrm{span}\{O_{\qu\bar{\qu}},O_{\qd\bar{\qd}},O_{\qs\bar{\qs}}\}.
+\]
+Thus cross-generation mesons such as \(u\bar s\), \(c\bar d\), \(b\bar u\),
+and \(c\bar s\) are ordinary members of the same basis.
+The Grand Meson lift is
+\[
+  \Gamma_{\mathrm{GM}}(O_{q\bar r})
+  :=
+  (i,j,O_{q\bar r})
+  \quad
+  \text{where }q\in A_i,\ r\in A_j.
+\]
+Thus
+\[
+  \mathsf M_{\mathrm{GM}}
+  :=
+  \{\,(i,j,O_{q\bar r})\mid q\in A_i,\ r\in A_j,\ 1\le i,j\le3\,\}.
+\]
+
+\begin{proposition}[Conservative QCD generalization]
+Let
+\[
+  \pi_{\mathrm{QCD}}(i,j,O_{q\bar r})=O_{q\bar r}.
+\]
+Then
+\[
+  \pi_{\mathrm{QCD}}\circ\Gamma_{\mathrm{GM}}
+  =
+  \mathrm{id}_{\mathsf Q_{\mathrm{mes}}}.
+\]
+Therefore the Grand Meson is a conservative generalization of the QCD
+mesonic flavor sector: it adds the three-axis pair closure
+\((i,j)\) while preserving the color-singlet QCD operator.
+\end{proposition}
+
+\begin{definition}[Grand Meson source Lagrangian]
+Write the quark-sector QCD Lagrangian as
+\[
+  \mathcal L_{\mathrm{QCD}}
+  =
+  -\frac14G^A_{\mu\nu}G^{A\mu\nu}
+  +
+  \sum_{q\in F_6}\bar q(i\gamma^\mu D_\mu-m_q)q .
+\]
+The Grand Meson source lift is
+\[
+  \mathcal L_{\mathrm{GM}}[J]
+  :=
+  \mathcal L_{\mathrm{QCD}}
+  +
+  \sum_{i,j=1}^{3}
+  \sum_{\substack{q\in A_i\\ r\in A_j}}
+  J_{ij}^{q\bar r}\,O_{q\bar r}.
+\]
+Here \(J_{ij}^{q\bar r}\) is not a new color force.  It is the closed
+Grand Meson source attached to the axis pair \((i,j)\).
+\end{definition}
+
+\begin{proposition}[Lagrangian recovery]
+Setting all Grand Meson sources to zero recovers QCD:
+\[
+  \mathcal L_{\mathrm{GM}}[0]=\mathcal L_{\mathrm{QCD}}.
+\]
+Forgetting the axis-pair labels sends the lifted source terms back to the
+ordinary mesonic source sector
+\[
+  \sum_{q,r\in F_6}J^{q\bar r}O_{q\bar r}.
+\]
+Thus the Grand Meson generalizes the mesonic Lagrangian layer by adding
+axis-channel closure, not by altering the color-gauge core.
+\end{proposition}
+
+\begin{definition}[Grand Meson quantum numbers]
+Let \(Q_q\) be the electric charge of quark \(q\), and let
+\(e_q\in\mathbb Z^{F_6}\) be the flavor unit at channel \(q\).  For a
+color-singlet mesonic channel with spin-parity label \(\sigma\), define
+\[
+  \nu_{\mathrm{QCD}}(q,\bar r;\sigma)
+  :=
+  (\sigma,\ Q_q-Q_r,\ e_q-e_r,\ B=0,\ \mathbf 1_{\mathrm c}).
+\]
+The Grand Meson lift is
+\[
+  \nu_{\mathrm{GM}}(q,\bar r;\sigma)
+  :=
+  (i,j,\nu_{\mathrm{QCD}}(q,\bar r;\sigma)),
+  \qquad q\in A_i,\ r\in A_j .
+\]
+Here \(\sigma\) may be \(J^{PC}\) for neutral channels; for charged or
+open-flavor channels it is the corresponding spin-parity sector without an
+unavailable charge-conjugation label.
+\end{definition}
+
+\begin{proposition}[Quantum-number recovery]
+If \(\pi_\nu(i,j,\nu)=\nu\), then
+\[
+  \pi_\nu\circ\nu_{\mathrm{GM}}
+  =
+  \nu_{\mathrm{QCD}}.
+\]
+Thus the Grand Meson generalizes mesonic quantum numbers by adding only
+the axis-pair quantum number \((i,j)\), while preserving charge, flavor,
+baryon number, color singletness, and the spin-parity sector.
+\end{proposition}
+
+\begin{definition}[Grand Meson observables]
+For QCD mesonic operators \(O_{q\bar r}\), write the ordinary two-point
+observable as
+\[
+  C_{q\bar r,s\bar t}(x-y)
+  :=
+  \langle O_{q\bar r}(x)O_{s\bar t}^{\dagger}(y)\rangle .
+\]
+The Grand Meson lift is the axis-closed observable
+\[
+  C^{\mathrm{GM}}_{ij,kl}(q\bar r,s\bar t;x-y)
+  :=
+  (i,j,k,l,\ C_{q\bar r,s\bar t}(x-y)),
+\]
+where \(q\in A_i,\ r\in A_j,\ s\in A_k,\ t\in A_l\).
+\end{definition}
+
+\begin{proposition}[Observable recovery]
+Let \(\pi_{\mathrm{obs}}(i,j,k,l,C)=C\).  Then
+\[
+  \pi_{\mathrm{obs}}
+  \bigl(C^{\mathrm{GM}}_{ij,kl}(q\bar r,s\bar t;x-y)\bigr)
+  =
+  C_{q\bar r,s\bar t}(x-y).
+\]
+Thus masses, widths, and spectral poles read from ordinary QCD correlators
+are preserved, while the Grand Meson retains which axis-pair channel made
+the observable readable.
+\end{proposition}
+
+\begin{definition}[Grand Meson conservation law]
+Let \(\mathbf a_{ij}\) be the unit basis element of
+\(\mathbb Z^{3\times3}\).  For \(q\in A_i\) and \(r\in A_j\), define
+\[
+  K_{\mathrm{QCD}}(q\bar r)
+  :=
+  (Q_q-Q_r,\ e_q-e_r,\ B=0,\ \mathbf 1_{\mathrm c})
+\]
+and lift it to
+\[
+  K_{\mathrm{GM}}(q\bar r)
+  :=
+  (\mathbf a_{ij},\ K_{\mathrm{QCD}}(q\bar r)).
+\]
+\end{definition}
+
+\begin{proposition}[Conservation-law recovery]
+For an oriented mesonic process
+\(\mathcal P=\sum_{\alpha}\eta_{\alpha}(q_\alpha\bar r_\alpha)\), ordinary
+QCD conservation is
+\[
+  \sum_{\alpha}\eta_{\alpha}
+  K_{\mathrm{QCD}}(q_\alpha\bar r_\alpha)=0 .
+\]
+The Grand Meson conservation condition is
+\[
+  \sum_{\alpha}\eta_{\alpha}
+  K_{\mathrm{GM}}(q_\alpha\bar r_\alpha)
+  =
+  (R_{\mathrm{axis}}(\mathcal P),0).
+\]
+Thus QCD conservation is recovered by forgetting the axis residue
+\(R_{\mathrm{axis}}\).  A closed Grand Meson process has
+\(R_{\mathrm{axis}}=0\); otherwise the nonzero axis residue must be
+closed rather than ignored.
+\end{proposition}
+
+At this level QCD becomes concise: its mesonic flavor sector is the union
+of one-axis terms \((i=i)\) and two-axis terms \((i\ne j)\) among the
+three Grand Meson axes.  The dynamics of color is not discarded; it is the
+singlet contraction already present in \(O_{q\bar r}\).  Channels touching
+\(\qt\) are retained as weak-virtual channels satisfying closure, not as ordinary
+top mesons.
 
 \section{Einstein's Gate}
 
 The Grand Meson must also avoid the classical aether failure.  It is not a
-hidden medium with an absolute state of rest.  It is a local six-port
+hidden medium with an absolute state of rest.  It is a local six-channel
 mediator whose outputs must be readable without introducing an absolute
 frame.
 Einstein's Gate is not a claim of Einstein's endorsement.  It names the
@@ -239,16 +666,26 @@ reintroduce an absolute hidden medium.
 
 \begin{convention}[No absolute mesonic frame]
 No equation in the Grand Meson theory may depend on a privileged global
-rest frame of the mediator.  Only typed ports, local registration, and
+rest frame of the mediator.  Only resolved flavor channels, local channel closure, and
 observer-readable projections may be used.
+For a Lorentz transformation \(\Lambda\), the flavor-axis labels
+\((i,j)\) are internal labels and remain fixed, while spacetime arguments
+and tensor indices transform in the ordinary way:
+\[
+  (i,j,O_{q\bar r}(x))
+  \longmapsto
+  (i,j,O'_{q\bar r}(\Lambda x)).
+\]
+Observable statements must therefore be Lorentz scalars or covariant tensor
+statements after forgetting the internal Grand Meson labels.
 \end{convention}
 
 This convention is Einstein's Gate.  It does not ban mediation.  It bans
 absolute mediation.  The Grand Meson is therefore not a return to the
-classical aether.  It is a typed local mediator that must survive
+classical aether.  It is a channel-resolved local mediator that must survive
 projection into admissible observations.
 
-\section{Why \texorpdfstring{\(n=3\)}{n=3} Is the Safe Case}
+\section{Why \texorpdfstring{\(n=3\)}{n=3} Is the Admissible Case}
 
 Formally one may define an \(n\)-meson by
 \[
@@ -257,74 +694,113 @@ Formally one may define an \(n\)-meson by
 The case \(n=1\) is the General Meson.  The case \(n=3\) is the Grand
 Meson.
 
-The reason to stop at \(n=3\) is not that higher \(n\) is impossible.  It
-is that a three-dimensional observer already has the first complete
-rotational reading at \(n=3\).  Three axes close the ordinary posture
-problem:
+The reason to stop at \(n=3\) is not that higher \(n\) is impossible, and
+it is not a proof of why nature has exactly three generations.  It is that
+the known six-flavor quark sector already factors as
 \[
-  \Read_{O_3}(\mathsf{Mes}_3)
+  F_6\cong G_3\times H_2 .
+\]
+Therefore \(n=3\) is the exact internal-generation cover of the present
+mesonic flavor sector:
+\[
+  \Read_{G_3}(\mathsf{Mes}_3)
   =
-  \Read_{O_3}(\mathsf{Pol}^{6}).
+  \Read_{G_3}(\mathsf{Pol}^{G_3\times H_2}).
 \]
 For \(n>3\), additional axes require additional readout structure.  Such
 structure may be meaningful in a later theory, but it is not required for
-the present observer class:
+the present six-flavor sector:
 \[
-  \Read_{O_3}(\mathsf{Mes}_n)
+  \Read_{G_3}(\mathsf{Mes}_n)
   \not>
-  \Read_{O_3}(\mathsf{Mes}_3)
+  \Read_{G_3}(\mathsf{Mes}_3)
   \qquad(n>3).
 \]
 
-Thus \(n=3\) is the first complete and last safe case: complete because
-the three axes are readable as a closed posture, safe because the theory
-does not ask the reader to chase an infinite ascent of unread axes.
+Thus \(n=3\) is the first complete and last admissible case for the present
+Grand Meson construction: complete because it covers the known
+three-generation flavor sector, admissible because the theory does not ask the
+reader to chase extra internal axes without new physical content.
 
-\section{Safe Transition}
+\section{Admissible Transition}
 
-Safety is not the absence of change.  Safety is the registration of change.
+Admissibility is not the absence of change.  It is the channel closure of change.
 Let a transition be written
 \[
   u:g\to g'.
 \]
-The transition may change ports, support, or observable posture.  It is
-unsafe only when the change crosses a typed boundary without registration.
+The transition may change channels, support, or observable posture.  It is
+inadmissible only when the change crosses a channel boundary without closure.
 
-\begin{definition}[Grand-safe transition]
-Let \(\Reg(u)\) be the registration record of a transition \(u:g\to g'\).
-The transition is Grand-safe when every changed port is registered:
+\begin{definition}[Grand-admissible transition]
+Let \(\Cl(u)\) be the channel closure of a transition \(u:g\to g'\).
+The transition is Grand-admissible when every changed channel is closed:
 \[
   \{q\in F_6\mid g(q)\ne g'(q)\}
   \subseteq
-  \Reg(u).
+  \Cl(u).
 \]
-It is Grand-unsafe when a changed port is absent from \(\Reg(u)\).
+It is Grand-inadmissible when a changed channel is absent from \(\Cl(u)\).
+\end{definition}
+
+\begin{definition}[Physical admissibility]
+Grand-admissibility is channel admissibility, not full physical permission.  A transition is
+physically admissible only when
+\[
+  \mathrm{PhysAdm}(u)
+  :=
+  \mathrm{GrandAdm}(u)
+  \wedge
+  \mathrm{Cons}_{\mathrm{QCD}}(u)
+  \wedge
+  \mathrm{Lag}_{\mathrm{GM}}(u)
+  \wedge
+  \mathrm{Obs}_{\mathrm{GM}}(u).
+\]
+Here \(\mathrm{Cons}_{\mathrm{QCD}}\) means that the conservation condition
+closes, \(\mathrm{Lag}_{\mathrm{GM}}\) means that the transition has a
+defined Lagrangian-source layer, and \(\mathrm{Obs}_{\mathrm{GM}}\) means
+that an observable readout exists.
 \end{definition}
 
 Equivalently,
 \[
-  \text{unsafe}=\text{unregistered discontinuity}.
+  \text{inadmissible}=\text{unclosed discontinuity}.
 \]
 The discontinuity itself is not the violation.  The violation is that the
 boundary crossing occurred while the theory failed to enter it into the
-ledger.
+channel closure.
 
 \section{Conclusion}
 
 The Grand Meson is not proposed as an omnipotent meson.  It is proposed as
-a safe \(n=3\) general-purpose meson:
+an admissible \(n=3\) general-purpose meson:
 \[
   \mathsf{Grand}=\mathsf{Pol}^{6}.
 \]
-It conservatively recovers the General Meson by projection, replaces
-undefined ports with typed ports, avoids an absolute aether frame, and
-treats safety as registration rather than immobility.
+It conservatively recovers the General Meson by a surjective projection,
+replaces missing channels with resolved flavor channels, avoids an absolute aether frame,
+and treats admissibility as channel closure rather than immobility.  Its backward
+compatibility is therefore responsible: extra axes may be fused into the
+older face only with a residual channel closure, while unclosed fission is
+inadmissible.
 
 The path is therefore narrow.  Begin with the \(\qu\leftrightarrow\qd\)
 eye that already works.  Open \(\qc\leftrightarrow\qs\) and
 \(\qt\leftrightarrow\qb\) without breaking it.  Stop at \(n=3\) until a
 future theory can make higher axes readable without turning them into a
 burden of infinite explanation.
+
+\section*{Acknowledgement}
+
+The author acknowledges Hideki Yukawa, whose meson theory supplies the
+foundational mediator problem from which this construction begins.  The
+author also acknowledges Albert Einstein, whose relativistic limit on
+classical mediation clarifies the boundary region exposed by the theoretical
+dialogue with Yukawa's mesonic idea.  Finally, the author thanks OpenAI and
+GPT-5.5 for helping weave this idea into a coherent manuscript and for
+respecting the strict confidentiality required during the drafting process.
+El Psy Kongroo.
 
 \begin{thebibliography}{9}
 
